@@ -1,11 +1,12 @@
 import { useHistory } from "react-router";
+import './ContactUs.css';
 
 export default function ContactUs() {
 
     const history = useHistory();
 
     return (
-        <div>
+        <div className="ContactUs">
             <h1>Contact Us</h1>
             <p>Please reach out to give us feedback on how we're doing! If 
                there's anything you want to talk to us about, or you just 
