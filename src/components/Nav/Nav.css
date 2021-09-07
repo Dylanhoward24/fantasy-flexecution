@@ -1,12 +1,17 @@
-.header {
+.upperHeader {
   /* flex box layout */
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  background-color: #FFFC01;
+}
 
-  margin: 0 0 30px;
-  background-color: #8b820385;
-  overflow: hidden;
+.lowerHeader {
+  /* flex box layout */
+  display: flex;
+  width: 100%;
+  background-color: black;
+  margin-bottom: 20px;
 }
 
 .nav a {
@@ -14,21 +19,23 @@
 }
 
 .header-title {
-  font-size: 36px;
+  font-size: 42px;
   font-weight: 700;
-  color: #f2f2f2;
+  color: black;
   padding-left: 10px;
+  padding-top: 15px;
   margin: 0;
 }
 
 .navLink {
   display: inline-block;
-  color: #f2f2f2;
-  background-color: #00acb0;
+  width: 100px;
+  color: #FFFC01;
+  background-color: black;
   text-align: center;
-  padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
+  padding: 5px;
 
   /* these last two make the logout button in
   the nav bar look like another link */
@@ -51,5 +58,9 @@
 
 .headerLink {
   padding-right: 10px;
-  padding-bottom: 20px;
+}
+
+.lowerRightHeader {
+  position: fixed;
+  right: 0;
 }

@@ -2,11 +2,12 @@
   /* flex box layout */
   display: flex;
   justify-content: space-between;
-  align-items: center;
-
-  margin: 0 0 30px;
-  background-color: #8b820385;
-  overflow: hidden;
+  
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFFC01;
 }
 
 .footerCopyright {
