@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ContactUs from '../ContactUs/ContactUs';
 
 import './App.css';
 
@@ -46,6 +47,10 @@ function App() {
             path="/about"
           >
             <AboutPage />
+          </Route>
+
+          <Route exact path="/contact">
+            <ContactUs />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
@@ -82,10 +87,7 @@ function App() {
             }
           </Route>
 
-          <Route
-            exact
-            path="/registration"
-          >
+          <Route exact path="/registration">
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page

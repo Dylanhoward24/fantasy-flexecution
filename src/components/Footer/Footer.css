@@ -1,5 +1,21 @@
-footer {
-  margin-top: 80px;
-  padding: 20px;
-  text-align: center;
+.footer {
+  /* flex box layout */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 0 30px;
+  background-color: #8b820385;
+  overflow: hidden;
+}
+
+.footerCopyright {
+  display: inline;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.link {
+  display: inline-block;
+  margin-left: 10px;
 }
