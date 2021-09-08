@@ -111,3 +111,14 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+.rankingLink {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+}
+
+.rankingLinks {
+  display: flex;
+  justify-content: center;
+}

@@ -24,7 +24,7 @@ function Header() {
           <Link className="navLink" to="/home">
             <p>Home</p>
           </Link>
-          <Link className="navLink" to="/overallranks">
+          <Link className="navLink" to="/allRankings">
             <p>Rankings</p>
           </Link>
           <Link className="navLink" to="/podcasts">
