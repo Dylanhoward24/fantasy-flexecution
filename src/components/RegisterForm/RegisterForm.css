@@ -1,0 +1,36 @@
+.registrationH2 {
+    text-align: center;
+}
+
+#registrationForm {
+    margin-left: 50%;
+}
+
+.inputFields {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#firstName {
+    margin-right: 12px;
+    margin-bottom: 5px;
+}
+
+#lastName {
+    margin-left: 12px;
+    margin-bottom: 5px;
+}
+
+#about, #emailAddress, #username, #password {
+    margin: 5px 0px;
+}
+
+#cancelBtn {
+    margin-top: 5px;
+    margin-left: 60%;
+}
+
+#registerBtn {
+    margin-left: 10px;
+}
