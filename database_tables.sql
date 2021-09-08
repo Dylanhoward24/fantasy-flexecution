@@ -4,10 +4,10 @@ CREATE TABLE "users" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
-    "authLevel" VARCHAR (80) NOT NULL,
-    "firstName" VARCHAR (80) NOT NULL,
-    "lastName" VARCHAR (80),
-    "emailAddress" VARCHAR (80) NOT NULL,
+    "auth_level" VARCHAR (80) NOT NULL,
+    "first_name" VARCHAR (80) NOT NULL,
+    "last_name" VARCHAR (80),
+    "email_address" VARCHAR (80) NOT NULL,
     "about" VARCHAR (1000)
 );
 
@@ -18,17 +18,17 @@ CREATE TABLE "comingUp" (
 
 CREATE TABLE "players" (
     "id" SERIAL PRIMARY KEY,
-	"firstName" VARCHAR (80) NOT NULL,
-	"lastName" VARCHAR (80) NOT NULL,
+	"first_name" VARCHAR (80) NOT NULL,
+	"last_name" VARCHAR (80) NOT NULL,
 	"team_id" INT REFERENCES "teams",
 	"position_id" INT REFERENCES "positions",
-	"timeCreated" TIMESTAMP,
-	"createdBy_user_id" INT REFERENCES "users"
+	"time_created" TIMESTAMP,
+	"created_by_user_id" INT REFERENCES "users"
 );
 
 CREATE TABLE "teams" (
     "id" SERIAL PRIMARY KEY,
-	"teamName" VARCHAR (80) NOT NULL
+	"team_name" VARCHAR (80) NOT NULL
 );
 
 CREATE TABLE "positions" (
@@ -38,8 +38,8 @@ CREATE TABLE "positions" (
 
 CREATE TABLE "tiers" (
     "id" SERIAL PRIMARY KEY,
-	"orderOnList" INT UNIQUE,
-	"tierName" VARCHAR (80) NOT NULL
+	"order_on_list" INT UNIQUE,
+	"tier_name" VARCHAR (80) NOT NULL
 );
 
 CREATE TABLE "playersRankings" (
@@ -65,15 +65,15 @@ CREATE TABLE "playersTags" (
 CREATE TABLE "podcasts" (
     "id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "users",
-	"timeUploaded" TIMESTAMP,
-	"imageSource" VARCHAR (6000),
+	"time_uploaded" TIMESTAMP,
+	"image_source" VARCHAR (6000),
 	"description" VARCHAR (1000)
 );
 
 CREATE TABLE "listenerRequests" (
     "id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "users",
-	"timeSubmitted" TIMESTAMP,
-	"requestInfo" VARCHAR (1000) NOT NULL,
-	"isAnswered" BOOLEAN DEFAULT FALSE
+	"time_submitted" TIMESTAMP,
+	"request_info" VARCHAR (1000) NOT NULL,
+	"is_answered" BOOLEAN DEFAULT FALSE
 );

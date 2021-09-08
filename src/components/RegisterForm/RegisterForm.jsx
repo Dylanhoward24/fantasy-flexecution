@@ -22,6 +22,14 @@ export default function RegisterForm() {
         newUser
       },
     });
+
+    // clear the input fields
+    setNewUser({
+      username: '', password: '', authLevel: 'user', 
+      firstName: '', lastName: '', emailAddress: '', about: ''
+    });
+
+    // history.push('/success')
   }; // end registerUser
 
   return (
@@ -66,7 +74,7 @@ export default function RegisterForm() {
           </div>
           <div id="cancelRegisterBtns">
             <button id="cancelBtn" onClick={() => history.push('/home')}>Cancel</button>
-            <button id="registerBtn">Register</button>
+            <button id="registerBtn" onClick={registerUser}>Register</button>
           </div>
         </form>
       </div>
