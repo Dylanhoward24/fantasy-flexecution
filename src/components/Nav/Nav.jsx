@@ -8,40 +8,48 @@ function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
-      </Link>
-      <div>
-        {/* If no user is logged in, show these links */}
-        {user.id === null &&
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        }
+    <div className="header">
 
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <>
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
-
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
-
-            <LogOutButton className="navLink" />
-          </>
-        )}
-
-        <Link className="navLink" to="/about">
-          About
+      <div className="upperHeader">
+        <Link to="/home">
+          <h1 className="header-title">Fantasy Flexecution</h1>
         </Link>
+        <div>
+            <img className="logo" src="https://m.media-amazon.com/images/I/51zTw14COAL._SL500_.jpg" />
+        </div>
       </div>
+
+      <div className="lowerHeader">
+        <div className="lowerLeftHeader">
+          <Link className="navLink" to="/home">
+            <p>Home</p>
+          </Link>
+          <Link className="navLink" to="/overallranks">
+            <p>Rankings</p>
+          </Link>
+          <Link className="navLink" to="/podcasts">
+            <p>Podcasts</p>
+          </Link>
+        </div>
+        <div className="lowerRightHeader">
+          <Link className="navLink" to="/login">
+            <p>Login</p>
+          </Link>
+          <Link className="navLink" to="/registration">
+            <p>Register</p>
+          </Link>
+        </div>
+      </div>
+
     </div>
   );
 }
 
 export default Nav;
+
+{/* <Link className="headerLink" to="/login">
+              Login
+            </Link>
+            <Link className="headerLink" to="/registration">
+              Register
+            </Link> */}

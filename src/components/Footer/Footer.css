@@ -1,5 +1,22 @@
-footer {
-  margin-top: 80px;
-  padding: 20px;
-  text-align: center;
+.footer {
+  /* flex box layout */
+  display: flex;
+  justify-content: space-between;
+  
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFFC01;
+}
+
+.footerCopyright {
+  display: inline;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.link {
+  display: inline-block;
+  margin-left: 10px;
 }
