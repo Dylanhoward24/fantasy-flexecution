@@ -24,7 +24,12 @@ import ContactUs from '../ContactUs/ContactUs';
 import LandingPage from '../LandingPage/LandingPage';
 import ListenerRequests from '../ListenerRequests/ListenerRequests';
 import LoginPage from '../LoginPage/LoginPage';
+import Podcasts from '../Podcasts/Podcasts';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import RunningBackRankings from '../RunningBackRankings/RunningBackRankings';
+import TightEndRankings from '../TightEndRankings/TightEndRankings';
+import QuarterbackRankings from '../QuarterbackRankings/QuarterbackRankings';
+import WideReceiverRankings from '../WideReceiverRankings/WideReceiverRankings';
 
 import './App.css';
 
@@ -61,23 +66,23 @@ function App() {
           </Route>
 
           <Route exact path="/podcasts">
-            {/* <Podcasts /> */}
+            <Podcasts />
           </Route>
 
           <Route exact path="/rbRankings">
-            {/* <RunningBackRankings /> */}
+            <RunningBackRankings />
           </Route>
 
           <Route exact path="/teRankings">
-            {/* <TightEndRankings /> */}
+            <TightEndRankings />
           </Route>
 
           <Route exact path="/qbRankings">
-            {/* <QuarterbackRankings /> */}
+            <QuarterbackRankings />
           </Route>
 
           <Route exact path="/wrRankings">
-            {/* <WideReceiverRankings /> */}
+            <WideReceiverRankings />
           </Route>
 
           {/* REDIRECTS */}
