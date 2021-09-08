@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
+import './Header.css';
 import { useSelector } from 'react-redux';
 
-function Nav() {
+function Header() {
   const user = useSelector((store) => store.user);
 
   return (
@@ -45,11 +45,4 @@ function Nav() {
   );
 }
 
-export default Nav;
-
-{/* <Link className="headerLink" to="/login">
-              Login
-            </Link>
-            <Link className="headerLink" to="/registration">
-              Register
-            </Link> */}
+export default Header;
