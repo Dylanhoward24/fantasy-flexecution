@@ -115,7 +115,8 @@ input {
 .rankingLink {
   display: inline-block;
   text-align: center;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .rankingLinks {
