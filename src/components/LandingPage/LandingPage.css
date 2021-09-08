@@ -33,3 +33,10 @@ body {
   grid-column-start: 2;
   grid-column-end: 3;
 }
+
+#submitBtn {
+  display: block;
+  margin-left: 66%;
+  margin-top: 5px;
+  padding: 3px 10px;
+}

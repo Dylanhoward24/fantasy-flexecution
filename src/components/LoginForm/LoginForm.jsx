@@ -26,7 +26,7 @@ function LoginForm() {
 
   return (
     <>
-      <p>Under Constrution</p>
+      <p>Under Construction</p>
     </>
   );
 }
