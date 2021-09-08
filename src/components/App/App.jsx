@@ -1,3 +1,4 @@
+// import framework and route library to navigate between components
 import React, { useEffect } from 'react';
 import {
   HashRouter as Router,
@@ -6,20 +7,29 @@ import {
   Switch,
 } from 'react-router-dom';
 
+// import for use by our redux/sagas
 import { useDispatch, useSelector } from 'react-redux';
 
-import Nav from '../Nav/Nav';
+// import our header and footer
+import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
+// allows us to prevent unauthenticated users from seeing things
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+// import our components
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+import AllRankings from '../AllRankings/AllRankings';
 import ContactUs from '../ContactUs/ContactUs';
+import LandingPage from '../LandingPage/LandingPage';
+import ListenerRequests from '../ListenerRequests/ListenerRequests';
+import LoginPage from '../LoginPage/LoginPage';
+import Podcasts from '../Podcasts/Podcasts';
+import RegisterPage from '../RegisterPage/RegisterPage';
+import RunningBackRankings from '../RunningBackRankings/RunningBackRankings';
+import TightEndRankings from '../TightEndRankings/TightEndRankings';
+import QuarterbackRankings from '../QuarterbackRankings/QuarterbackRankings';
+import WideReceiverRankings from '../WideReceiverRankings/WideReceiverRankings';
 
 import './App.css';
 
@@ -35,7 +45,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <Header />
         <Switch>
 
           {/* ROUTES */}
@@ -43,12 +53,36 @@ function App() {
             <AboutPage />
           </Route>
 
-          <Route exact path="/contact">
+          <Route exact path="/allRankings">
+            <AllRankings />
+          </Route>
+
+          <Route exact path="/contactUs">
             <ContactUs />
           </Route>
 
           <Route exact path="/home">
             <LandingPage />
+          </Route>
+
+          <Route exact path="/podcasts">
+            <Podcasts />
+          </Route>
+
+          <Route exact path="/rbRankings">
+            <RunningBackRankings />
+          </Route>
+
+          <Route exact path="/teRankings">
+            <TightEndRankings />
+          </Route>
+
+          <Route exact path="/qbRankings">
+            <QuarterbackRankings />
+          </Route>
+
+          <Route exact path="/wrRankings">
+            <WideReceiverRankings />
           </Route>
 
           {/* REDIRECTS */}
@@ -70,20 +104,10 @@ function App() {
           </Route>
 
           {/* PROTECTED ROUTES */}
-          <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
-          >
-            <UserPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
+          {/* These display the route only if the user is logged in, and if
+              not, it brings them to the login page*/}
+          <ProtectedRoute exact path="/listenerRequests">
+            <ListenerRequests />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
