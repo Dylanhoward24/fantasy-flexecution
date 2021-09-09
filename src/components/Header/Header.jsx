@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './Header.css';
-import { useSelector } from 'react-redux';
-import LoginForm from '../LoginForm/LoginForm';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Header() {
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
   return (
@@ -35,7 +34,9 @@ function Header() {
         <div className="lowerRightHeader">
           {user.id ?
             <>
-              <LogOutButton className="navLink"/>
+              <button className="navButton" 
+                onClick={() => dispatch({ type: 'LOGOUT' })}
+              >Logout</button>
             </>
             :
             <>

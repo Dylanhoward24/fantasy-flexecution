@@ -44,7 +44,25 @@
   outline: 0;
 }
 
-.navLink:hover {
+.navButton {
+  display: inline-block;
+  width: 100px;
+  height: 58px;
+  color: #FFFC01;
+  background-color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 5px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+
+.navLink:hover, .navButton:hover {
   background-color: #5c5b15;
 }
 
