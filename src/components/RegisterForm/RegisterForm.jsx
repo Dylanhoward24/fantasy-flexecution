@@ -36,7 +36,7 @@ export default function RegisterForm() {
     <div className="container">
       <div id="registrationForm">
         <h2 className="registrationH2">Tell us about yourself</h2>
-        <form onSubmit={registerUser}>
+        <form>
           {errors.registrationMessage && (
             <h3 className="alert" role="alert">
               {errors.registrationMessage}

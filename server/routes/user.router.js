@@ -26,7 +26,7 @@ router.post('/register', (req, res, next) => {
   `;
   const sqlParams = [
     req.body.newUser.username,
-    req.body.newUser.password,
+    encryptLib.encryptPassword(req.body.newUser.password),
     req.body.newUser.authLevel,
     req.body.newUser.firstName,
     req.body.newUser.lastName,
