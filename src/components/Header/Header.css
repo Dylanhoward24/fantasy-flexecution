@@ -61,6 +61,5 @@
 }
 
 .lowerRightHeader {
-  position: fixed;
-  right: 0;
+margin-left: auto;
 }
