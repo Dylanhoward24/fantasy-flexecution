@@ -27,6 +27,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import Podcasts from '../Podcasts/Podcasts';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import RunningBackRankings from '../RunningBackRankings/RunningBackRankings';
+import SuccessPage from '../SuccessPage/SuccessPage';
 import TightEndRankings from '../TightEndRankings/TightEndRankings';
 import QuarterbackRankings from '../QuarterbackRankings/QuarterbackRankings';
 import WideReceiverRankings from '../WideReceiverRankings/WideReceiverRankings';
@@ -71,6 +72,10 @@ function App() {
 
           <Route exact path="/rbRankings">
             <RunningBackRankings />
+          </Route>
+
+          <Route exact path="/success">
+            <SuccessPage />
           </Route>
 
           <Route exact path="/teRankings">

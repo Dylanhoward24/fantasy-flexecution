@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Header.css';
 import { useSelector } from 'react-redux';
+import LoginForm from '../LoginForm/LoginForm';
 
 function Header() {
   const user = useSelector((store) => store.user);
@@ -32,12 +33,20 @@ function Header() {
           </Link>
         </div>
         <div className="lowerRightHeader">
-          <Link className="navLink" to="/login">
-            <p>Login</p>
-          </Link>
-          <Link className="navLink" to="/registration">
-            <p>Register</p>
-          </Link>
+          {user.id ?
+            <>
+              <LogOutButton className="navLink"/>
+            </>
+            :
+            <>
+              <Link className="navLink" to="/login">
+                <p>Login</p>
+              </Link>
+              <Link className="navLink" to="/registration">
+                <p>Register</p>
+              </Link>
+            </>
+          }
         </div>
       </div>
 

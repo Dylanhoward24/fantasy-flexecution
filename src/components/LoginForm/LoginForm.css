@@ -1,0 +1,35 @@
+.loginH2 {
+    text-align: center;
+}
+
+#loginForm {
+    margin-left: 50%;
+}
+
+.inputFields {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#username, #password {
+    margin: 5px 0px;
+}
+
+#cancelBtn {
+    margin-top: 5px;
+    margin-left: 60%;
+}
+
+#loginBtn {
+    margin-left: 10px;
+}
+
+#registerOption {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#registerBtn {
+    padding-top: 15px;
+}

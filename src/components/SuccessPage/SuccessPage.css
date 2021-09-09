@@ -1,0 +1,17 @@
+#successBody {
+    display: inline-flex;
+    margin-top: 3%;
+    ;
+}
+
+#imReadyContinue {
+    margin-top: 25%;
+}
+
+#logo {
+    width: 250px;
+    height: 250px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+}

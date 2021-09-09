@@ -3,7 +3,7 @@
 --
 -- team information
 INSERT INTO "teams"
-	("teamName")
+	("team_name")
 VALUES
 	('Arizona Cardinals'),
 	('Atlanta Falcons'),
@@ -49,7 +49,7 @@ VALUES
 --
 -- tier information
 INSERT INTO "tiers"
-	("orderOnList", "tierName")
+	("order_on_list", "tier_name")
 VALUES
 	(1, 'Elite Superstars'),
 	(2, 'Elite Upside'),
@@ -58,3 +58,9 @@ VALUES
 	(5, 'High Floor, Low Upside'),
 	(6, 'Too Soon To Tell'),
 	(7, 'Holds');
+
+-- testing users
+INSERT INTO "users"
+	("username", "password", "auth_level", "first_name", "last_name", "email_address", "about")
+VALUES
+	('dylbot', 'LooneyTooney', 'admin', 'Dylan', 'Howard', 'dylan.howard0424@gmail.com', 'I am the creator of this app! Muahaha!');
