@@ -4,13 +4,22 @@ import { useDispatch } from 'react-redux';
 import './LandingPage.css';
 
 export default function LandingPage() {
-  const history = useHistory();
   const dispatch = useDispatch();
 
   let [requestInfo, setRequestInfo] = useState('');
 
   function submitRequest() {
-    
+    dispatch({
+      type: 'SUBMIT_LISTENER_REQUEST',
+      payload: {
+        requestInfo
+      }
+    });
+
+    // clear the input field
+    setRequestInfo('');
+
+    alert('Thanks!');
   }
 
   return (
