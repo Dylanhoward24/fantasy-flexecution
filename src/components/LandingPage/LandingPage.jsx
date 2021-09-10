@@ -31,7 +31,6 @@ export default function LandingPage() {
         <div className="grid-container">
           <div id="item1">
             <h3>Welcome, {user.first_name}!</h3>
-            <br />
             <img id="adminLogo" src="https://m.media-amazon.com/images/I/51zTw14COAL._SL500_.jpg" />
           </div>
           <div id="item2">

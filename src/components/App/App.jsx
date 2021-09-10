@@ -45,6 +45,7 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: 'FETCH_COMING_UP' });
   }, [dispatch]);
 
   return (
