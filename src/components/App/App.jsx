@@ -47,6 +47,7 @@ function App() {
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
     dispatch({ type: 'FETCH_COMING_UP' });
+    dispatch({ type: 'FETCH_PODCASTS' });
   }, [dispatch]);
 
   return (
