@@ -7,6 +7,7 @@ export default function LandingPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((store) => store.user);
+  const comingUp = useSelector((store) => store.comingUp);
 
   let [requestInfo, setRequestInfo] = useState('');
 
@@ -34,11 +35,11 @@ export default function LandingPage() {
             <img id="adminLogo" src="https://m.media-amazon.com/images/I/51zTw14COAL._SL500_.jpg" />
           </div>
           <div id="item2">
-            <h3>Unanswered listener requests: {0}</h3>
-            <button className="adminBtns">Listener Requests</button>
-          </div>
-          <div id="item3">
-            <div>
+            <div id="listenerRequests">
+              <h3>Unanswered listener requests: {0}</h3>
+              <button className="adminBtns">Listener Requests</button>
+            </div>
+            <div id="uploadPodcast">
               <h3>Upload a podcast</h3>
               <button className="adminBtns">Upload Podcast</button>
             </div>
@@ -61,6 +62,13 @@ export default function LandingPage() {
           </div>
           <div id="item6">
             <h3>Coming Up</h3>
+            <ul>
+              {comingUp.map((item, i) => (
+                <li className="listItem" key={i}>
+                  {item.description}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </>

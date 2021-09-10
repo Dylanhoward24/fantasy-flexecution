@@ -14,13 +14,17 @@ export default function EditComingUp() {
     function addComingUp(e) {
         e.preventDefault();
 
+        // post local state to the db
         axios.post('/api/coming-up', {description})
             .then(() => {
+                // then shout to fetch/set global state
+                // equal to the new db values after post
                 dispatch({
                     type: 'FETCH_COMING_UP'
                 });
             });
-
+        
+        // clear the input field
         setDescription('');
     }
 
