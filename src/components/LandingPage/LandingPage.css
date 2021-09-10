@@ -34,9 +34,45 @@ body {
   grid-column-end: 3;
 }
 
+#item4 {
+  grid-row-start: 1;
+  grid-row-end: 48;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+#item5 {
+  grid-row-start: 1;
+  grid-row-end: 24;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+#item6 {
+  grid-row-start: 24;
+  grid-row-end: 48;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
 #submitBtn {
   display: block;
   margin-left: 66%;
   margin-top: 5px;
   padding: 3px 10px;
+}
+
+#adminLogo {
+  width: 350px;
+  height: 350px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+}
+
+.adminBtns {
+  width: 160px;
+  height: 40px;
+  cursor: pointer;
+  margin: 10px;
 }

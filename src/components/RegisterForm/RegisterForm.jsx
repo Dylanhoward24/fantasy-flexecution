@@ -29,7 +29,7 @@ export default function RegisterForm() {
       firstName: '', lastName: '', emailAddress: '', about: ''
     });
 
-    // history.push('/success')
+    
   }; // end registerUser
 
   return (

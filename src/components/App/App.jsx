@@ -21,9 +21,13 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 import AllRankings from '../AllRankings/AllRankings';
 import ContactUs from '../ContactUs/ContactUs';
+import EditAboutPage from '../EditAboutPage/EditAboutPage';
+import EditAddPlayers from '../EditAddPlayers/EditAddPlayers';
+import EditComingUp from '../EditComingUp/EditComingUp';
 import LandingPage from '../LandingPage/LandingPage';
 import ListenerRequests from '../ListenerRequests/ListenerRequests';
 import LoginPage from '../LoginPage/LoginPage';
+import ModifyTags from '../ModifyTags/ModifyTags';
 import Podcasts from '../Podcasts/Podcasts';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import RunningBackRankings from '../RunningBackRankings/RunningBackRankings';
@@ -113,6 +117,22 @@ function App() {
               not, it brings them to the login page*/}
           <ProtectedRoute exact path="/listenerRequests">
             <ListenerRequests />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/edit-add-players">
+            <EditAddPlayers />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/modify-tags">
+            <ModifyTags />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/edit-coming-up">
+            <EditComingUp />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/edit-about-page">
+            <EditAboutPage />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}

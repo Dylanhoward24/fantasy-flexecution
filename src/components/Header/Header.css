@@ -81,3 +81,33 @@
 .lowerRightHeader {
 margin-left: auto;
 }
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 200px;
+  overflow: auto;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content a {
+    display: block;
+    color: #CCCC01;
+    padding: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: black;
+  }
+
+  .dropdown-content a:hover {
+    color: #FFFFFF;
+    background-color: #5c5b15;
+  }
