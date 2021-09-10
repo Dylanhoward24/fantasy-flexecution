@@ -22,7 +22,7 @@ CREATE TABLE "players" (
 	"last_name" VARCHAR (80) NOT NULL,
 	"team_id" INT REFERENCES "teams",
 	"position_id" INT REFERENCES "positions",
-	"time_created" TIMESTAMP,
+	"time_created" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	"created_by_user_id" INT REFERENCES "users"
 );
 
@@ -65,7 +65,7 @@ CREATE TABLE "playersTags" (
 CREATE TABLE "podcasts" (
     "id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "users",
-	"time_uploaded" TIMESTAMP,
+	"time_uploaded" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	"image_source" VARCHAR (6000),
 	"description" VARCHAR (1000)
 );
@@ -73,7 +73,7 @@ CREATE TABLE "podcasts" (
 CREATE TABLE "listenerRequests" (
     "id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "users",
-	"time_submitted" TIMESTAMP,
+	"time_submitted" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	"request_info" VARCHAR (1000) NOT NULL,
 	"is_answered" BOOLEAN DEFAULT FALSE
 );

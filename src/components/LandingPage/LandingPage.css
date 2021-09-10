@@ -44,8 +44,8 @@ body {
 #item6 {
   grid-row-start: 24;
   grid-row-end: 48;
-  grid-column-start: 32;
-  grid-column-end: 40;
+  grid-column-start: 24;
+  grid-column-end: 48;
 }
 
 #submitBtn {
@@ -74,3 +74,9 @@ body {
 #uploadPodcast {
   margin-top: 20%;
 }
+
+.podcastLogo {
+  width: 100px;
+  height: 100px;
+}
+

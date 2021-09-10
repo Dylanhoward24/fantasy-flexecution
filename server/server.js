@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const listenerRequestRouter = require('./routes/listener-request.router');
 const comingUpRouter = require('./routes/coming-up.router');
+const podcastsRouter = require('./routes/podcasts.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -27,6 +28,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/listener-request', listenerRequestRouter);
 app.use('/api/coming-up', comingUpRouter);
+app.use('/api/podcasts', podcastsRouter);
 
 // Serve static files
 app.use(express.static('build'));

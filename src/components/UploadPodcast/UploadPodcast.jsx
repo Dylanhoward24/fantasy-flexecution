@@ -19,7 +19,7 @@ export default function UploadPodcast() {
         userId, imageSource, description: ''
     });
 
-    // const podcasts = useSelector(store => store.podcasts);
+    const podcasts = useSelector(store => store.podcasts);
 
     function addNewPodcast(e) {
         e.preventDefault();
@@ -41,7 +41,7 @@ export default function UploadPodcast() {
     }
 
     return (
-        <div className="container">
+        <div className="container" id="uploadPodcast">
             <h2>Upload a Podcast</h2>
             <h4>Add new</h4>
             <form onSubmit={addNewPodcast}>
@@ -52,17 +52,22 @@ export default function UploadPodcast() {
             </form>
             <br />
             <table>
-                <tr>
-                    <th>Description</th>
-                    <th>Remove</th>
-                </tr>
-                {/* {podcasts.map((item, i) => (
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Date Uploaded</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {podcasts.map((item, i) => (
                     <tr key={i}>
                         <UploadPodcastItem
                             item={item}
                         />
                     </tr>
-                ))} */}
+                ))}
+                </tbody>
             </table>
         </div>
 );

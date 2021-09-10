@@ -8,8 +8,16 @@ export default function LandingPage() {
   const history = useHistory();
   const user = useSelector((store) => store.user);
   const comingUp = useSelector((store) => store.comingUp);
+  const podcasts = useSelector((store) => store.podcasts);
+  const podcastsToDisplay = podcasts.slice(((podcasts.length)-2), podcasts.length);
 
   let [requestInfo, setRequestInfo] = useState('');
+
+  // to format the appending date of the recent podcasts
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" }
+    return new Date(dateString).toLocaleDateString(undefined, options)
+  }
 
   function submitRequest() {
     dispatch({
@@ -55,6 +63,15 @@ export default function LandingPage() {
         <div className="grid-container">
           <div id="item4">
             <h3>Recent Podcasts</h3>
+            <div id="podcastDisplayArea">
+              {podcastsToDisplay.map((podcast, i) => (
+                <div key={i}>
+                  <img className="podcastLogo" src={podcast.image_source} />
+                  <p>{formatDate(podcast.time_uploaded)}</p>
+                  <p>{podcast.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <div id="item5">
             <h3>What do you want to hear on our show?</h3>
@@ -66,7 +83,7 @@ export default function LandingPage() {
           </div>
           <div id="item6">
             <h3>Coming Up</h3>
-            <ul>
+            <ul id="comingUpDisplay">
               {comingUp.map((item, i) => (
                 <li className="listItem" key={i}>
                   {item.description}
