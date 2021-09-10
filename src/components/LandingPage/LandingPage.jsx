@@ -37,11 +37,15 @@ export default function LandingPage() {
           <div id="item2">
             <div id="listenerRequests">
               <h3>Unanswered listener requests: {0}</h3>
-              <button className="adminBtns">Listener Requests</button>
+              <button className="adminBtns" onClick={() => history.push('/listener-requests')}>
+                Listener Requests
+              </button>
             </div>
             <div id="uploadPodcast">
               <h3>Upload a podcast</h3>
-              <button className="adminBtns">Upload Podcast</button>
+              <button className="adminBtns" onClick={() => history.push('/upload-podcast')}>
+                Upload Podcast
+              </button>
             </div>
           </div>
         </div>

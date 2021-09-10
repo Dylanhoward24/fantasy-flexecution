@@ -33,6 +33,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import RunningBackRankings from '../RunningBackRankings/RunningBackRankings';
 import SuccessPage from '../SuccessPage/SuccessPage';
 import TightEndRankings from '../TightEndRankings/TightEndRankings';
+import UploadPostcast from '../UploadPodcast/UploadPodcast';
 import QuarterbackRankings from '../QuarterbackRankings/QuarterbackRankings';
 import WideReceiverRankings from '../WideReceiverRankings/WideReceiverRankings';
 
@@ -116,7 +117,7 @@ function App() {
           {/* PROTECTED ROUTES */}
           {/* These display the route only if the user is logged in, and if
               not, it brings them to the login page*/}
-          <ProtectedRoute exact path="/listenerRequests">
+          <ProtectedRoute exact path="/listener-requests">
             <ListenerRequests />
           </ProtectedRoute>
 
@@ -134,6 +135,10 @@ function App() {
 
           <ProtectedRoute exact path="/edit-about-page">
             <EditAboutPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/upload-podcast">
+            <UploadPostcast />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
