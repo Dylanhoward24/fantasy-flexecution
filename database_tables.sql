@@ -13,7 +13,7 @@ CREATE TABLE "users" (
 
 CREATE TABLE "comingUp" (
     "id" SERIAL PRIMARY KEY,
-    "description" VARCHAR (80) NOT NULL
+    "description" VARCHAR (500) NOT NULL
 );
 
 CREATE TABLE "players" (
