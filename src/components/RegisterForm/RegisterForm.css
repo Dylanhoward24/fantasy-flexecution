@@ -1,11 +1,3 @@
-.registrationH2 {
-    text-align: center;
-}
-
-#registrationForm {
-    margin-left: 50%;
-}
-
 .inputFields {
     display: flex;
     justify-content: center;
@@ -28,9 +20,36 @@
 
 #cancelBtn {
     margin-top: 5px;
-    margin-left: 60%;
+    margin-left: 45%;
 }
 
-#registerBtn {
-    margin-left: 10px;
+#registrationBtn {
+    margin-left: 2.5%
+}
+
+#adminLogo {
+    margin-top: 5%;
+    width: 400px;
+    height: 400px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-gap: 10px;
+}
+
+#item1 {
+    grid-row-start: 1;
+    grid-row-end: 48;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#item2 {
+    grid-row-start: 1;
+    grid-row-end: 48;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
