@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
 import './LandingPage.css';
 
 export default function LandingPage() {
@@ -15,24 +16,27 @@ export default function LandingPage() {
 
   let [requestInfo, setRequestInfo] = useState('');
 
-  // to format the appending date of the recent podcasts
+  // to format the appending date of the listener requests
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" }
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
 
   function submitRequest() {
-    dispatch({
-      type: 'SUBMIT_LISTENER_REQUEST',
-      payload: {
-        requestInfo
-      }
+    // post local state to the db
+    axios.post('/api/listener-requests', {requestInfo})
+    .then(() => {
+        // then shout to fetch/set global state
+        // equal to the new db values after post
+        dispatch({
+            type: 'FETCH_LISTENER_REQUESTS'
+        });
     });
 
     // clear the input field
     setRequestInfo('');
 
-    alert('Thanks!');
+    alert('Thanks for submitting a request!');
   }
 
   return (

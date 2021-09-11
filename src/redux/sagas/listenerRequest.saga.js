@@ -1,17 +1,19 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// set up the global "listener" for shouts
-export default function* listenerRequestSaga() {
-    yield takeLatest('SUBMIT_LISTENER_REQUEST', submitListenerRequest);
-  }
+export default function* listenerRequestsSaga() {
+    yield takeLatest('FETCH_LISTENER_REQUESTS', fetchListenerRequests);
+}  
 
-// function that's ran when the shout is heard
-function* submitListenerRequest(action) {
+function* fetchListenerRequests() {
   try {
-    axios.post('/api/listener-request', action.payload);
+    // response is the data from the server
+    const response = yield axios.get('/api/listener-requests');
+
+    // dispatch (put) that response via shouting SET_LISTENER_REQUESTS
+    yield put({ type: 'SET_LISTENER_REQUESTS', payload: response.data });
   }
   catch (error) {
-    console.log('User get request failed', error);
+    console.log('listener requests get request failed', error);
   }
 }

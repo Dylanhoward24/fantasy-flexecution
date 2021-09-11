@@ -2,11 +2,18 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
 router.get('/', (req, res) => {
-  // GET route code here
+    const sqlText = `
+    SELECT * FROM "listenerRequests"
+`;
+    pool.query(sqlText)
+    .then((dbRes) => {
+        res.send(dbRes.rows)
+    })
+    .catch((error) => {
+        console.log('get listenerRequests error', error);
+        res.sendStatus(500);
+    });
 });
 
 router.post('/', (req, res) => {
