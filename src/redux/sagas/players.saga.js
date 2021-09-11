@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-export default function* tagsSaga() {
-    yield takeLatest('FETCH_TAGS', fetchTags);
+export default function* playersSaga() {
+    yield takeLatest('FETCH_PLAYERS', fetchPlayers);
 }  
 
-function* fetchTags() {
+function* fetchPlayers() {
   try {
     // response is the data from the server
-    const response = yield axios.get('/api/tags');
+    const response = yield axios.get('/api/players');
 
     // dispatch (put) that response via shouting SET_TAGS
     yield put({ type: 'SET_TAGS', payload: response.data });
