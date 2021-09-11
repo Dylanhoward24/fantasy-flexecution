@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const comingUpRouter = require('./routes/coming-up.router');
 const listenerRequestsRouter = require('./routes/listener-requests.router');
 const podcastsRouter = require('./routes/podcasts.router');
+const positionsRouter = require('./routes/positions.router');
 const tagsRouter = require('./routes/tags.router');
 const userRouter = require('./routes/user.router');
 
@@ -29,6 +30,7 @@ app.use(passport.session());
 app.use('/api/coming-up', comingUpRouter);
 app.use('/api/listener-requests', listenerRequestsRouter);
 app.use('/api/podcasts', podcastsRouter);
+app.use('/api/positions', positionsRouter);
 app.use('/api/tags', tagsRouter);
 app.use('/api/user', userRouter);
 

@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import comingUp from './comingUp.reducer';
 import podcasts from './podcasts.reducer';
+import positions from './positions.reducer';
 import listenerRequests from './listenerRequests.reducer';
 import tags from './tags.reducers';
 
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   podcasts, // array of podcasts for landing page and podcast components
   listenerRequests, // array of requests submitted by listeners on landing page
   tags, // array of tags that are associated with players, modified by admins
+  positions, // array of positions that are associated with players, predefined
 });
 
 export default rootReducer;

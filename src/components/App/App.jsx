@@ -50,6 +50,8 @@ function App() {
     dispatch({ type: 'FETCH_PODCASTS' });
     dispatch({ type: 'FETCH_LISTENER_REQUESTS'});
     dispatch({ type: 'FETCH_TAGS' });
+    dispatch({ type: 'FETCH_POSITIONS'});
+    dispatch({ type: 'FETCH_TEAMS'});
   }, [dispatch]);
 
   return (
