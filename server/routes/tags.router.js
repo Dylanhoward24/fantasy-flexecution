@@ -4,30 +4,28 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     const sqlText = `
-    SELECT * FROM "users"
-    JOIN "listenerRequests"
-        ON "listenerRequests"."user_id" = "users"."id"
+    SELECT * FROM "tags"
     `;
     pool.query(sqlText)
     .then((dbRes) => {
         res.send(dbRes.rows)
     })
     .catch((error) => {
-        console.log('get listenerRequests error', error);
+        console.log('get tags error', error);
         res.sendStatus(500);
     });
 });
 
 router.post('/', (req, res) => {
     const sqlText = `
-        INSERT INTO "listenerRequests"
-            ("user_id", "request_info")
+        INSERT INTO "tags"
+            ("tag", "description")
         VALUES
             ($1, $2)
     `;
     const sqlParams = [
-        req.user.id,
-        req.body.requestInfo
+        req.body.tag,
+        req.body.description
     ];
     pool.query(sqlText, sqlParams)
         .then((results) => {
@@ -40,7 +38,7 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     const sqlText = `
-        DELETE FROM "listenerRequests"
+        DELETE FROM "tags"
         WHERE "id" = $1
     `;
     pool.query(sqlText, [req.params.id])
@@ -48,7 +46,7 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(200);
     })
     .catch((error) => {
-        console.log('responded to listener request error', error);
+        console.log('delete tag error', error);
         res.sendStatus(500);
     });
 });

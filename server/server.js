@@ -8,10 +8,11 @@ const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
 
 // Route includes
-const userRouter = require('./routes/user.router');
-const listenerRequestsRouter = require('./routes/listener-requests.router');
 const comingUpRouter = require('./routes/coming-up.router');
+const listenerRequestsRouter = require('./routes/listener-requests.router');
 const podcastsRouter = require('./routes/podcasts.router');
+const tagsRouter = require('./routes/tags.router');
+const userRouter = require('./routes/user.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -25,10 +26,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* Routes */
-app.use('/api/user', userRouter);
-app.use('/api/listener-requests', listenerRequestsRouter);
 app.use('/api/coming-up', comingUpRouter);
+app.use('/api/listener-requests', listenerRequestsRouter);
 app.use('/api/podcasts', podcastsRouter);
+app.use('/api/tags', tagsRouter);
+app.use('/api/user', userRouter);
 
 // Serve static files
 app.use(express.static('build'));
