@@ -10,7 +10,7 @@ export default function EditAddPlayers() {
     });
     // global state
     const positions = useSelector((store) => store.positions);
-    // const teams = useSelector((store) => store.teams);
+    const teams = useSelector((store) => store.teams);
     const tags = useSelector((store) => store.tags);
 
     function addNewPlayer() {

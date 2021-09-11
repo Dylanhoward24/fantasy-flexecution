@@ -9,8 +9,6 @@ function* fetchPositions() {
   try {
     // response is the data from the server
     const response = yield axios.get('/api/positions');
-    console.log('response is', response);
-    
 
     // dispatch (put) that response via shouting SET_POSITIONS
     yield put({ type: 'SET_POSITIONS', payload: response.data });
