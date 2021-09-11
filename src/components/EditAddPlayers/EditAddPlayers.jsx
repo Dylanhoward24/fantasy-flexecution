@@ -1,7 +1,31 @@
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 export default function EditAddPlayers() {
+    const dispatch = useDispatch();
+
+    let [newPlayer, setNewPlayer] = useState({
+        firstName: '', lastName: '', position: 0, team: 0, tags: 0
+    });
+
+    function addNewPlayer() {
+
+    }
+
     return (
         <div className="container">
-            <p>Under Construction...</p>
+            <center>
+                <h2>Add Player</h2>
+
+                <pre>{JSON.stringify(newPlayer)}</pre>
+                <form onSubmit={addNewPlayer}>
+                    <input type="text" value={newPlayer.firstName} placeholder="First Name"
+                        onChange={(e) => setNewPlayer({...newPlayer, firstName: e.target.value})}/>
+                    <input type="text" value={newPlayer.lastName} placeholder="Last Name"
+                        onChange={(e) => setNewPlayer({...newPlayer, lastName: e.target.value})}/>
+                </form>
+            </center>
+
         </div>
     );
 }
