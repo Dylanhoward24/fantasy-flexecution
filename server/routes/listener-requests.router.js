@@ -4,7 +4,9 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     const sqlText = `
-    SELECT * FROM "listenerRequests"
+    SELECT * FROM "users"
+    JOIN "listenerRequests"
+        ON "listenerRequests"."user_id" = "users"."id"
 `;
     pool.query(sqlText)
     .then((dbRes) => {
@@ -34,6 +36,21 @@ router.post('/', (req, res) => {
             console.log('post listenerRequest failed!', err);
             res.sendStatus(500);
         });
+});
+
+router.delete('/:id', (req, res) => {
+    const sqlText = `
+        DELETE FROM "listenerRequests"
+        WHERE "id" = $1
+    `;
+    pool.query(sqlText, [req.params.id])
+    .then((results) => {
+        res.sendStatus(200);
+    })
+    .catch((error) => {
+        console.log('responded to listener request error', error);
+        res.sendStatus(500);
+    });
 });
 
 module.exports = router;
