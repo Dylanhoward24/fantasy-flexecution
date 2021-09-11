@@ -9,7 +9,9 @@ export default function LandingPage() {
   const user = useSelector((store) => store.user);
   const comingUp = useSelector((store) => store.comingUp);
   const podcasts = useSelector((store) => store.podcasts);
-  const podcastsToDisplay = podcasts.slice(((podcasts.length)-2), podcasts.length);
+
+  // take the first two from the array to display by most recent
+  const podcastsToDisplay = podcasts.slice(((podcasts.length)-2), (podcasts.length));
 
   let [requestInfo, setRequestInfo] = useState('');
 
