@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     const sqlText = `
-        DELETE FROM "listenerRequests"
+        DELETE FROM "tags"
         WHERE "id" = $1
     `;
     pool.query(sqlText, [req.params.id])
@@ -46,7 +46,7 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(200);
     })
     .catch((error) => {
-        console.log('responded to listener request error', error);
+        console.log('delete tag error', error);
         res.sendStatus(500);
     });
 });

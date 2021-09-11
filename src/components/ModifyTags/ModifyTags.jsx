@@ -45,18 +45,22 @@ export default function ModifyTags() {
             </form>
             <h4>Current Tags</h4>
             <table>
+                <thead>
                 <tr>
                     <th>Tag</th>
                     <th>Description</th>
                     <th>Remove</th>
                 </tr>
-                {tags.map((tag, i) => (
-                    <tr key={i}>
-                        <ModifyTagsItem
-                            tag={tag}
-                        />
-                    </tr>
-                ))}
+                </thead>
+                <tbody>
+                    {tags.map((tag, i) => (
+                        <tr key={i}>
+                            <ModifyTagsItem
+                                tag={tag}
+                            />
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         </div>
     );
