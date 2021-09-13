@@ -14,6 +14,7 @@ export default function EditAddPlayers() {
     const teams = useSelector((store) => store.teams);
     const tags = useSelector((store) => store.tags);
     const user = useSelector((store) => store.user);
+    const tiers = useSelector((store) => store.tiers);
 
     // make const to be referenced in each new player added
     const createdByUserId = user.id

@@ -10,10 +10,12 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const comingUpRouter = require('./routes/coming-up.router');
 const listenerRequestsRouter = require('./routes/listener-requests.router');
+const playersRouter = require('./routes/players.router');
 const podcastsRouter = require('./routes/podcasts.router');
 const positionsRouter = require('./routes/positions.router');
 const tagsRouter = require('./routes/tags.router');
 const teamsRouter = require('./routes/teams.router');
+const tiersRouter = require('./routes/tiers.router');
 const userRouter = require('./routes/user.router');
 
 // Body parser middleware
@@ -30,10 +32,12 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/coming-up', comingUpRouter);
 app.use('/api/listener-requests', listenerRequestsRouter);
+app.use('/api/players', playersRouter);
 app.use('/api/podcasts', podcastsRouter);
 app.use('/api/positions', positionsRouter);
 app.use('/api/tags', tagsRouter);
 app.use('/api/teams', teamsRouter);
+app.use('/api/tiers', tiersRouter);
 app.use('/api/user', userRouter);
 
 // Serve static files
