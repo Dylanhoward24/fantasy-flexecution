@@ -24,12 +24,20 @@ function Header() {
           <Link className="navLink" to="/home">
             <p>Home</p>
           </Link>
-          <Link className="navLink" to="/allRankings">
-            <p>Rankings</p>
-          </Link>
           <Link className="navLink" to="/podcasts">
             <p>Podcasts</p>
           </Link>
+          <div className="dropdown">
+            <Link className="navLink" to="/all-rankings">
+              <p>Rankings</p>
+            </Link>
+            <div className="dropdown-content">
+              <a onClick={() => history.push('/qb-rankings')}>Quarterbacks</a>
+              <a onClick={() => history.push('/rb-rankings')}>Running Backs</a>
+              <a onClick={() => history.push('/wr-rankings')}>Wide Receivers</a>
+              <a onClick={() => history.push('/te-rankings')}>Tight Ends</a>
+            </div>
+          </div>
           {user.auth_level === 'admin' ?
           <div className="dropdown">
             <Link className="navLink" to="/home">

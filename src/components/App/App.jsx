@@ -65,11 +65,11 @@ function App() {
             <AboutPage />
           </Route>
 
-          <Route exact path="/allRankings">
+          <Route exact path="/all-rankings">
             <AllRankings />
           </Route>
 
-          <Route exact path="/contactUs">
+          <Route exact path="/contact-us">
             <ContactUs />
           </Route>
 
@@ -81,7 +81,7 @@ function App() {
             <Podcasts />
           </Route>
 
-          <Route exact path="/rbRankings">
+          <Route exact path="/rb-rankings">
             <RunningBackRankings />
           </Route>
 
@@ -89,15 +89,15 @@ function App() {
             <SuccessPage />
           </Route>
 
-          <Route exact path="/teRankings">
+          <Route exact path="/te-rankings">
             <TightEndRankings />
           </Route>
 
-          <Route exact path="/qbRankings">
+          <Route exact path="/qb-rankings">
             <QuarterbackRankings />
           </Route>
 
-          <Route exact path="/wrRankings">
+          <Route exact path="/wr-rankings">
             <WideReceiverRankings />
           </Route>
 
