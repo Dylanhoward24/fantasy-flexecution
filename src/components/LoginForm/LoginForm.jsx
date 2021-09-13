@@ -44,7 +44,7 @@ function LoginForm() {
           </div>
           <div className="inputFields">
             {/* capture the value of the user's username */}
-            <textarea id="password" value={password} placeholder="Password" rows="1" cols="50"
+            <input type="password" id="password" value={password} placeholder="Password" rows="1" cols="50"
               onChange={(e) => setPassword(e.target.value)}/>
           </div>
           <div id="cancelLoginBtns">
