@@ -5,7 +5,9 @@ import userSaga from './user.saga';
 import listenerRequestSaga from './listenerRequest.saga';
 import comingUpSaga from './comingUp.saga';
 import podcastsSaga from './podcasts.saga';
+import positionsSaga from './positions.saga';
 import tagsSaga from './tags.saga';
+import teamsSaga from './teams.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +25,7 @@ export default function* rootSaga() {
     comingUpSaga(),
     podcastsSaga(),
     tagsSaga(),
+    positionsSaga(),
+    teamsSaga(),
   ]);
 }

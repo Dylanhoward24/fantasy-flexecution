@@ -25,7 +25,7 @@ export default function RegisterForm() {
 
     // clear the input fields
     setNewUser({
-      username: '', password: '', authLevel: 'user', 
+      username: '', password: '',
       firstName: '', lastName: '', emailAddress: '', about: ''
     });
 
