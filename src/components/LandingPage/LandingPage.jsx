@@ -41,7 +41,7 @@ export default function LandingPage() {
 
   return (
     <div className="container">
-      {user.auth_level === 'admin' ?
+      {(user.auth_level === 'admin' || 'host') ?
       <>
         <div className="grid-container">
           <div id="item1">

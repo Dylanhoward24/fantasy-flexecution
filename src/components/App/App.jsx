@@ -53,6 +53,7 @@ function App() {
     dispatch({ type: 'FETCH_POSITIONS'});
     dispatch({ type: 'FETCH_TEAMS'});
     dispatch({ type: 'FETCH_TIERS'});
+    dispatch({ type: 'FETCH_HOSTS'});
   }, [dispatch]);
 
   return (

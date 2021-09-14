@@ -9,6 +9,7 @@ import positionsSaga from './positions.saga';
 import tagsSaga from './tags.saga';
 import teamsSaga from './teams.saga';
 import tiersSaga from './tiers.saga';
+import hostsSaga from './hosts.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     positionsSaga(),
     teamsSaga(),
     tiersSaga(),
+    hostsSaga(),
   ]);
 }

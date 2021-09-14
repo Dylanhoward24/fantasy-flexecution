@@ -9,6 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const comingUpRouter = require('./routes/coming-up.router');
+const hostsRouter = require('./routes/hosts.router');
 const listenerRequestsRouter = require('./routes/listener-requests.router');
 const playersRouter = require('./routes/players.router');
 const podcastsRouter = require('./routes/podcasts.router');
@@ -31,6 +32,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/coming-up', comingUpRouter);
+app.use('/api/hosts', hostsRouter);
 app.use('/api/listener-requests', listenerRequestsRouter);
 app.use('/api/players', playersRouter);
 app.use('/api/podcasts', podcastsRouter);

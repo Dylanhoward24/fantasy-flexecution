@@ -8,6 +8,8 @@ import listenerRequests from './listenerRequests.reducer';
 import tags from './tags.reducers';
 import teams from './teams.reducer';
 import tiers from './tiers.reducer';
+import hosts from './hosts.reducer';
+import playerRankings from './newPlayerRankings.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -25,6 +27,8 @@ const rootReducer = combineReducers({
   positions, // array of positions that are associated with players, predefined
   teams, // array of teams that are associated with players, predefined
   tiers, // array of tiers to place players in based on performance categories
+  hosts, // array of the users with 'host' level access to the show
+  playerRankings, // global state when adding new players to get hosts' ranks
 });
 
 export default rootReducer;

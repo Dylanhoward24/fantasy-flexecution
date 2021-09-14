@@ -38,7 +38,7 @@ function Header() {
               <a onClick={() => history.push('/te-rankings')}>Tight Ends</a>
             </div>
           </div>
-          {user.auth_level === 'admin' ?
+          {(user.auth_level === 'admin' || 'host') ?
           <div className="dropdown">
             <Link className="navLink" to="/home">
               <p>Admin</p>
