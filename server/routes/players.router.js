@@ -24,70 +24,65 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
-    // SQL text for the players table
-    const playersSqlText = `
-        INSERT INTO "players"
-            ("first_name", "last_name", "team_id", "position_id", "created_by_user_id")
-        VALUES
-            ($1, $2, $3, $4, $5)
-        RETURNING id
-    `;
-    const playersSqlParams = [
-        req.body.newPlayer.firstName,
-        req.body.newPlayer.lastName,
-        req.body.newPlayer.team,
-        req.body.newPlayer.position,
-        req.body.newPlayer.createdByUserId
-    ];
-    // SQL text for the playersRankings table
-    const playersRankingsSqlText = `
-        INSERT INTO "playersRankings"
-            ("user_id", "player_id", "tier_id", "rank")
-        VALUES
-            ($1, $2, $3, $4)
-            ($5, $6, $7, $8)
-    `;
-    // SQL text for the playersTags table
-    const playersTagsSqlText = `
-        INSERT INTO "playersTags"
-            ("tag_id", "player_id")
-        VALUES
-            ($1, $2)
-    `;
-    pool.query(playersSqlText, playersSqlParams)
-        .then((results) => {
-            let returnedId = results.id
-            pool.query(
-                playersRankingsSqlText, 
-                [
-                    // for host #1
-                    req.body.rankingsToPass[0].hostId,
-                    returnedId, // from the initial post
-                    req.body.rankingsToPass[0].newPlayerTier,
-                    req.body.rankingsToPass[0].newPlayerRank,
-                    // for host #2
-                    req.body.rankingsToPass[1].hostId,
-                    returnedId,
-                    req.body.rankingsToPass[1].newPlayerTier,
-                    req.body.rankingsToPass[1].newPlayerRank,
-                ]
-            )
-        .then((results) => {
-            pool.query(
-                playersTagsSqlText, 
-                [
-                    req.body.playersTag,
-                    returnedId
-                ]
-            )
-        })
-        }).then((results) => {
-            res.sendStatus(201);
-        }).catch((err) => {
-            console.log('post player failed!', err);
-            res.sendStatus(500);
-        });
+router.post('/', async (req, res) => {
+    const client = await pool.connect();
+
+    try {
+        const {
+            newPlayer,
+            rankingsToPass,
+            playersTag
+        } = req.body;
+        const {
+            firstName,
+            lastName,
+            team,
+            position,
+            createdByUserId
+        } = newPlayer;
+        await client.query('BEGIN');
+        const playerInsertResults = await client.query(`
+            INSERT INTO "players"
+                ("first_name", "last_name", "team_id", "position_id", "created_by_user_id")
+            VALUES
+                ($1, $2, $3, $4, $5)
+            RETURNING id;
+            `, [firstName, lastName, team, position, createdByUserId]
+        );
+
+        // get this is the id from the above returned value
+        const playerId = playerInsertResults.rows[0].id;
+        // map through our playersRankings array to insert each host's player rank
+        await Promise.all(rankingsToPass.map(ranking => {
+            const sqlText = `
+                INSERT INTO "playersRankings"
+                    ("player_id", "user_id", "tier_id", "rank")
+                VALUES
+                    ($1, $2, $3, $4)
+            `;
+            const sqlParams = [
+                playerId, ranking.hostId, ranking.newPlayerTier, ranking.newPlayerRank
+            ];
+            return client.query(sqlText, sqlParams);
+        }));
+
+        const playersTagsInsertResults = await client.query(`
+            INSERT INTO "playersTags"
+                ("player_id", "tag_id")
+            VALUES
+                ($1, $2)
+            `, [playerId, playersTag]
+        );
+
+        await client.query('COMMIT');
+        res.sendStatus(201);
+    } catch (error) {
+        await client.query('ROLLBACK');
+        console.log('Error POST /api/player', error);
+        res.sendStatus(500);
+    } finally {
+        client.release();
+    }
 });
 
 router.delete('/:id', (req, res) => {

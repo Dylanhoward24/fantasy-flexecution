@@ -79,6 +79,8 @@ export default function EditAddPlayers() {
                         <EditAddPlayersItem host={host}/>
                     </div>
                 ))}
+                <br />
+                
             </center>
         </div>
     );
