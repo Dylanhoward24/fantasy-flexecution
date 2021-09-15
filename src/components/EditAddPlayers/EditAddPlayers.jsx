@@ -26,6 +26,7 @@ export default function EditAddPlayers() {
    const hosts = useSelector((store) => store.hosts);
    const playerRankings = useSelector((store) => store.playerRankings);
    const players = useSelector((store) => store.players);
+   console.log(hosts);
  
    // take the last however many hosts there are that have been confirmed as correct to pass for our db post
    const rankingsToPass = playerRankings.slice((playerRankings.length)-(hosts.length), playerRankings.length);
