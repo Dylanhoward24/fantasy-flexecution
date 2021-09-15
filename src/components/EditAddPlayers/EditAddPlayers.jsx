@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import EditAddPlayersItem from '../EditAddPlayersItem/EditAddPlayersItem';
 
 export default function EditAddPlayers() {
     const dispatch = useDispatch();
-   // useEffect(() => {
-   //     dispatch({ type: 'FETCH_PLAYERS'});
-   //   }, []);
+   useEffect(() => {
+       dispatch({ type: 'FETCH_PLAYERS'});
+     }, []);
  
    // make const to be referenced in each new player added
    const user = useSelector((store) => store.user);
@@ -113,7 +113,7 @@ export default function EditAddPlayers() {
                                {player.tierRank.map((tierRank, i) => (
                                    <td key={i}>{tierRank}</td>
                                ))}
-                               <td>{}</td>
+                               <td>{player.addedBy}</td>
                            </tr>
                        ))}
                    </tbody>
