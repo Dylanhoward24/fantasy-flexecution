@@ -7,6 +7,6 @@ const listenerRequestsReducer = (state = [], action) => {
     }
   };
   
-  // user will be on the redux state at:
+  // liastenerRequests will be on the redux state at:
   // state.listenerRequests
   export default listenerRequestsReducer;
