@@ -9,6 +9,8 @@ function* fetchPlayers() {
  try {
    // response is the data from the server
    const response = yield axios.get('/api/players/');
+   console.log('response.data is', response.data);
+   
  
    // dispatch (put) that response via shouting SET_TAGS
    yield put({ type: 'SET_PLAYERS', payload: response.data });

@@ -7,19 +7,21 @@ router.get('/', (req, res) => {
     SELECT
         "players"."first_name" as "firstName",
         "players"."last_name" as "lastName",
+        "players"."time_created" as "timeAdded",
         "teams"."team_name" as "team",
         "positions"."position" as "position",
+        "users"."first_name" as "addedBy",
+        "tags"."tag" as "tags",
         ARRAY_AGG("playersRankings"."tier_id") as "tier",
-        ARRAY_AGG("playersRankings"."rank") as "tierRank",
-        "users"."first_name" as "addedBy"
+        ARRAY_AGG("playersRankings"."rank") as "tierRank"
     FROM "tiers"
     JOIN "playersRankings"
         ON "playersRankings"."tier_id" = "tiers"."id"
     JOIN "players"
         ON "players"."id" = "playersRankings"."player_id"
-    JOIN "playersTags"
+    FULL JOIN "playersTags"
         ON "playersTags"."player_id" = "players"."id"
-    JOIN "tags"
+    FULL JOIN "tags"
         ON "tags"."id" = "playersTags"."tag_id"
     JOIN "positions"
         ON "positions"."id" = "players"."position_id"
@@ -27,7 +29,8 @@ router.get('/', (req, res) => {
         ON "teams"."id" = "players"."team_id"
     JOIN "users"
         ON "users"."id" = "players"."created_by_user_id"
-    GROUP BY "firstName", "lastName", "team", "position", "addedBy"
+    GROUP BY "firstName", "lastName", "timeAdded", "team", "tags", "position", "addedBy"
+    ORDER BY "timeAdded" DESC
     `;
     pool.query(sqlText)
     .then((dbRes) => {
@@ -81,13 +84,13 @@ router.post('/', async (req, res) => {
             return client.query(sqlText, sqlParams);
         }));
   
-        const playersTagsInsertResults = await client.query(`
-            INSERT INTO "playersTags"
-                ("player_id", "tag_id")
-            VALUES
-                ($1, $2)
-            `, [playerId, playersTag]
-        );
+        // const playersTagsInsertResults = await client.query(`
+        //     INSERT INTO "playersTags"
+        //         ("player_id", "tag_id")
+        //     VALUES
+        //         ($1, $2)
+        //     `, [playerId, playersTag]
+        // );
   
         await client.query('COMMIT');
         res.sendStatus(201);
