@@ -8,10 +8,10 @@ export default function* playersSaga() {
 function* fetchPlayers() {
   try {
     // response is the data from the server
-    const response = yield axios.get('/api/players');
+    const response = yield axios.get('/api/players/');
 
     // dispatch (put) that response via shouting SET_TAGS
-    yield put({ type: 'SET_TAGS', payload: response.data });
+    yield put({ type: 'SET_PLAYERS', payload: response.data });
   }
   catch (error) {
     console.log('tags get request failed', error);

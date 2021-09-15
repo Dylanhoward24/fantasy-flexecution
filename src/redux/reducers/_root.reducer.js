@@ -10,6 +10,7 @@ import teams from './teams.reducer';
 import tiers from './tiers.reducer';
 import hosts from './hosts.reducer';
 import playerRankings from './newPlayerRankings.reducer'
+import players from './players.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   tiers, // array of tiers to place players in based on performance categories
   hosts, // array of the users with 'host' level access to the show
   playerRankings, // global state when adding new players to get hosts' ranks
+  players, // array of players default by id to show on admin editAddPlayers
 });
 
 export default rootReducer;

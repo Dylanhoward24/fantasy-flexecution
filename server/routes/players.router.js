@@ -4,15 +4,30 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     const sqlText = `
-    SELECT * FROM "tiers"
+    SELECT 
+        "players"."first_name" as "firstName",
+        "players"."last_name" as "lastName",
+        "teams"."team_name" as "team",
+        "positions"."position" as "position",
+        ARRAY_AGG("playersRankings"."tier_id") as "tier",
+        ARRAY_AGG("playersRankings"."rank") as "tierRank",
+        "players"."created_by_user_id" as "addedBy"
+    FROM "tiers"
     JOIN "playersRankings"
         ON "playersRankings"."tier_id" = "tiers"."id"
     JOIN "players"
         ON "players"."id" = "playersRankings"."player_id"
     JOIN "playersTags"
-        ON "playersTags"."players_id" = "players"."id"
+        ON "playersTags"."player_id" = "players"."id"
     JOIN "tags"
-        ON "tags"."id" = "playersTags"."tags_id"
+        ON "tags"."id" = "playersTags"."tag_id"
+    JOIN "positions"
+        ON "positions"."id" = "players"."position_id"
+    JOIN "teams"
+        ON "teams"."id" = "players"."team_id"
+    JOIN "users"
+        ON "users"."id" = "players"."created_by_user_id"
+    GROUP BY "firstName", "lastName", "team", "position", "addedBy"
     `;
     pool.query(sqlText)
     .then((dbRes) => {
