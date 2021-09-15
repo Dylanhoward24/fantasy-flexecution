@@ -5,7 +5,7 @@ export default function EditComingUpItem( {item} ) {
     const dispatch = useDispatch();
 
     // get id of item passed through local props
-    let id = item.id;
+    const id = item.id;
 
     function deleteComingUp() {
         axios.delete(`/api/coming-up/${id}`)

@@ -1,14 +1,22 @@
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 export default function PlayersItem( {player} ) {
+    const dispatch = useDispatch();
 
-    function editPlayer() {
-        return (
-            axios.delete('/')
-        );
-    }
+    // get id of player passed through local props
+    const id = player.id;
 
     function deletePlayer() {
+        axios.delete(`api/players/${id}`)
+            .then(() => {
+                dispatch({
+                    type: 'FETCH_PLAYERS'
+                });
+            });
+    }
+
+    function editPlayer() {
         return (
             null
         );
