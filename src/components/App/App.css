@@ -129,3 +129,12 @@ textarea {
 .listItem {
   text-align: left;
 }
+
+td, th {
+  padding: 8px;
+}
+
+input, select {
+  padding: 4px;
+  margin: 4px;
+}

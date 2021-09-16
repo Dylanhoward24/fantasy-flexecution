@@ -21,6 +21,8 @@ export default function EditAddPlayersItem( {host} ) {
                newPlayerRank
            }
        });
+       setNewPlayerTier(0);
+       setNewPlayerRank('');
    }
  
    return (

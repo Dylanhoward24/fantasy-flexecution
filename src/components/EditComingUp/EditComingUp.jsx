@@ -41,10 +41,13 @@ export default function EditComingUp() {
             </form>
             <br />
             <table>
-                <tr>
-                    <th>Description</th>
-                    <th>Remove</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
                 {comingUp.map((item, i) => (
                     <tr key={i}>
                         <EditComingUpItem
@@ -52,6 +55,7 @@ export default function EditComingUp() {
                         />
                     </tr>
                 ))}
+                </tbody>
             </table>
 
           </div>

@@ -5,6 +5,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     const sqlText = `
     SELECT
+        "players"."id" as "playerId",
         "players"."first_name" as "firstName",
         "players"."last_name" as "lastName",
         "players"."time_created" as "timeAdded",
@@ -29,7 +30,7 @@ router.get('/', (req, res) => {
         ON "teams"."id" = "players"."team_id"
     JOIN "users"
         ON "users"."id" = "players"."created_by_user_id"
-    GROUP BY "firstName", "lastName", "timeAdded", "team", "tags", "position", "addedBy"
+    GROUP BY "playerId", "firstName", "lastName", "timeAdded", "team", "tags", "position", "addedBy"
     ORDER BY "timeAdded" DESC
     `;
     pool.query(sqlText)
@@ -93,7 +94,7 @@ router.post('/', async (req, res) => {
         // );
   
         await client.query('COMMIT');
-        res.sendStatus(201);
+        res.sendStatus(200);
     } catch (error) {
         await client.query('ROLLBACK');
         console.log('Error POST /api/player', error);
@@ -103,19 +104,42 @@ router.post('/', async (req, res) => {
     }
 });
  
-router.delete('/:id', (req, res) => {
-    const sqlText = `
-        DELETE FROM "tags"
-        WHERE "id" = $1
-    `;
-    pool.query(sqlText, [req.params.id])
-    .then((results) => {
+router.delete('/:id', async (req, res) => {
+    const client = await pool.connect();
+
+    try {
+        await client.query('BEGIN');
+
+        // delete the info from the playersRankings table
+        const playersRankingsDeleteResults = await client.query(`
+                DELETE FROM "playersRankings"
+                WHERE "player_id" = $1
+            `, [req.params.id]
+        );
+        
+        // then delete info from the playersTags table
+        const playersTagsDeleteResults = await client.query(`
+                DELETE FROM "playersTags"
+                WHERE "player_id" = $1
+            `, [req.params.id]
+        );
+
+        // then delete info from the players table
+        const playersDeleteResults = await client.query(`
+                DELETE FROM "players"
+                WHERE "id" = $1
+            `, [req.params.id]
+        );
+
+        await client.query('COMMIT');
         res.sendStatus(200);
-    })
-    .catch((error) => {
-        console.log('delete tag error', error);
+    } catch (error) {
+        await client.query('ROLLBACK');
+        console.log('Error DELETE /api/player', error);
         res.sendStatus(500);
-    });
+    } finally {
+        client.release();
+    }
 });
 
 module.exports = router;
