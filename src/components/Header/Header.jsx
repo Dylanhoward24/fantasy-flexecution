@@ -28,9 +28,9 @@ function Header() {
             <p>Podcasts</p>
           </Link>
           <div className="dropdown">
-            <Link className="navLink" to="/all-rankings">
+            <a className="navLink" to="/all-rankings">
               <p>Rankings</p>
-            </Link>
+            </a>
             <div className="dropdown-content">
               <a onClick={() => history.push('/qb-rankings')}>Quarterbacks</a>
               <a onClick={() => history.push('/rb-rankings')}>Running Backs</a>
