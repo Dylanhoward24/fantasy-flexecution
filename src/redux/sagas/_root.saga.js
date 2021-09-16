@@ -11,6 +11,7 @@ import teamsSaga from './teams.saga';
 import tiersSaga from './tiers.saga';
 import hostsSaga from './hosts.saga';
 import playersSaga from './players.saga';
+import quarterbacksSaga from './quarterbacks.saga';
  
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -33,5 +34,6 @@ export default function* rootSaga() {
    tiersSaga(),
    hostsSaga(),
    playersSaga(),
+   quarterbacksSaga(),
  ]);
 }

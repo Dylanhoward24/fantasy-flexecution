@@ -14,10 +14,14 @@ const listenerRequestsRouter = require('./routes/listener-requests.router');
 const playersRouter = require('./routes/players.router');
 const podcastsRouter = require('./routes/podcasts.router');
 const positionsRouter = require('./routes/positions.router');
+const quarterbacksRouter = require('./routes/quarterbacks.router');
+const runningbacksRouter = require('./routes/runningbacks.router');
 const tagsRouter = require('./routes/tags.router');
 const teamsRouter = require('./routes/teams.router');
 const tiersRouter = require('./routes/tiers.router');
+const tightendsRouter = require('./routes/tightends.router');
 const userRouter = require('./routes/user.router');
+const widereceiversRouter = require('./routes/widereceivers.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -37,10 +41,14 @@ app.use('/api/listener-requests', listenerRequestsRouter);
 app.use('/api/players', playersRouter);
 app.use('/api/podcasts', podcastsRouter);
 app.use('/api/positions', positionsRouter);
+app.use('/api/quarterbacks', quarterbacksRouter);
+app.use('/api/runningbacks', runningbacksRouter);
 app.use('/api/tags', tagsRouter);
 app.use('/api/teams', teamsRouter);
 app.use('/api/tiers', tiersRouter);
+app.use('/api/tightends', tightendsRouter);
 app.use('/api/user', userRouter);
+app.use('/api/widereceivers', widereceiversRouter);
 
 // Serve static files
 app.use(express.static('build'));

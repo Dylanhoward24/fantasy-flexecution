@@ -138,3 +138,13 @@ input, select {
   padding: 4px;
   margin: 4px;
 }
+
+.tierLabel {
+  border-right: none;
+  font-weight: bold;
+}
+
+.playerNameTableDisplay, .teamTableDisplay, .tagsTableDisplay {
+  padding-left: 50px;
+  padding-right: 50px;
+}
