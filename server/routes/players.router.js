@@ -1,8 +1,11 @@
 const express = require('express');
+const {
+    rejectUnauthenticated,
+  } = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const sqlText = `
     SELECT
         "players"."id" as "playerId",
@@ -43,7 +46,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', async (req, res) => {
+router.post('/', rejectUnauthenticated, async (req, res) => {
     const client = await pool.connect();
   
     try {
@@ -94,7 +97,7 @@ router.post('/', async (req, res) => {
         // );
   
         await client.query('COMMIT');
-        res.sendStatus(200);
+        res.sendStatus(201);
     } catch (error) {
         await client.query('ROLLBACK');
         console.log('Error POST /api/player', error);
@@ -104,7 +107,7 @@ router.post('/', async (req, res) => {
     }
 });
  
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', rejectUnauthenticated, async (req, res) => {
     const client = await pool.connect();
 
     try {
