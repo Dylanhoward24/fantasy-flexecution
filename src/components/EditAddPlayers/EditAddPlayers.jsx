@@ -8,7 +8,7 @@ export default function EditAddPlayers() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: 'FETCH_PLAYERS'});
-    }, [dispatch]);
+    }, []);
  
    // make const to be referenced in each new player added
    const user = useSelector((store) => store.user);
@@ -27,7 +27,6 @@ export default function EditAddPlayers() {
    const hosts = useSelector((store) => store.hosts);
    const playerRankings = useSelector((store) => store.playerRankings);
    const players = useSelector((store) => store.players);
-   console.log('players are', players);
  
    // take the last however many hosts there are that have been confirmed as correct to pass for our db post
    const rankingsToPass = playerRankings.slice((playerRankings.length)-(hosts.length), playerRankings.length);
@@ -42,6 +41,10 @@ export default function EditAddPlayers() {
                    type: 'FETCH_PLAYERS'
                });
            });
+        setPlayersTag(0);
+        setNewPlayer({
+            firstName: '', lastName: '', team: 0, position: 0, createdByUserId
+        });
    }
  
    return (

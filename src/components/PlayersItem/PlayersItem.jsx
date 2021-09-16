@@ -5,7 +5,7 @@ export default function PlayersItem( {player} ) {
     const dispatch = useDispatch();
 
     // get id of player passed through local props
-    const id = player.id;
+    let id = player.playerId;
 
     function deletePlayer() {
         axios.delete(`api/players/${id}`)
