@@ -10,6 +10,7 @@ export default function LandingPage() {
   const user = useSelector((store) => store.user);
   const comingUp = useSelector((store) => store.comingUp);
   const podcasts = useSelector((store) => store.podcasts);
+  const listenerRequests = useSelector((store) => store.listenerRequests);
 
   // take the first two from the array to display by most recent
   const podcastsToDisplay = podcasts.slice(((podcasts.length)-2), (podcasts.length));
@@ -39,9 +40,13 @@ export default function LandingPage() {
     alert('Thanks for submitting a request!');
   }
 
+  function autoFillListenerRequest() {
+    setRequestInfo(`How should we be approaching the Packers offense if they look as bad on Monday night as they did last week?`);
+  }
+
   return (
     <div className="container">
-      {user.auth_level === 'admin' ?
+      {user.auth_level === 'admin' || 'host' ?
       <>
         <div className="grid-container">
           <div id="item1">
@@ -50,7 +55,7 @@ export default function LandingPage() {
           </div>
           <div id="item2">
             <div id="listenerRequests">
-              <h3>Unanswered listener requests: {0}</h3>
+              <h3>Unanswered listener requests: {listenerRequests.length}</h3>
               <button className="adminBtns" onClick={() => history.push('/listener-requests')}>
                 Listener Requests
               </button>
@@ -80,7 +85,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div id="item5">
-            <h3>What do you want to hear on our show?</h3>
+            <h3 onClick={autoFillListenerRequest}>What do you want to hear on our show?</h3>
             <textarea value={requestInfo} rows="8" cols="50"
               placeholder="Submit your request here. We'll
               address it in a future show!"

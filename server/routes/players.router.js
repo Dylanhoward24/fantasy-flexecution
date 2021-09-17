@@ -13,7 +13,9 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         "players"."last_name" as "lastName",
         "players"."time_created" as "timeAdded",
         "teams"."team_name" as "team",
+        "teams"."id" as "teamId",
         "positions"."position" as "position",
+        "positions"."id" as "positionId",
         "users"."first_name" as "addedBy",
         "tags"."tag" as "tags",
         ARRAY_AGG("playersRankings"."tier_id") as "tier",
@@ -33,7 +35,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         ON "teams"."id" = "players"."team_id"
     JOIN "users"
         ON "users"."id" = "players"."created_by_user_id"
-    GROUP BY "playerId", "firstName", "lastName", "timeAdded", "team", "tags", "position", "addedBy"
+    GROUP BY "playerId", "firstName", "lastName", "timeAdded", "team", "teamId", "tags", "position", "positionId", "addedBy"
     ORDER BY "timeAdded" DESC
     `;
     pool.query(sqlText)
@@ -52,7 +54,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
     try {
         const {
             newPlayer,
-            rankingsToPass,
+            playerRankings,
             playersTag
         } = req.body;
         const {
@@ -75,7 +77,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
         // get this is the id from the above returned value
         const playerId = playerInsertResults.rows[0].id;
         // map through our playersRankings array to insert each host's player rank
-        await Promise.all(rankingsToPass.map(ranking => {
+        await Promise.all(playerRankings.map(ranking => {
             const sqlText = `
                 INSERT INTO "playersRankings"
                     ("player_id", "user_id", "tier_id", "rank")
