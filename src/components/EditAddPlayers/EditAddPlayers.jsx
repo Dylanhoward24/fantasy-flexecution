@@ -110,9 +110,9 @@ export default function EditAddPlayers() {
                    </thead>
                    <tbody>
                        {players.map((player, i) => (
-                           <tr key={i}>
+                           <>
                                <PlayersItem player={player}/>
-                           </tr>
+                           </>
                        ))}
                    </tbody>
                </table>
