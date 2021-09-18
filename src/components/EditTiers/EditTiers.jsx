@@ -22,12 +22,12 @@ export default function EditTiers( {player} ) {
                                     <br />
                                     <br />
                                     <button className="upBtn"
-                                        onClick={movePlayerTierUp}>
-                                            &#8592;
-                                    </button>
-                                    <button className="upBtn"
                                         onClick={movePlayerTierDown}>
-                                            &#8592;
+                                            &#8678;
+                                    </button>
+                                    <button className="downBtn"
+                                        onClick={movePlayerTierUp}>
+                                            &#8680;
                                     </button>
                                 </center>
                             </td>
@@ -40,12 +40,12 @@ export default function EditTiers( {player} ) {
                                     <br />
                                     <br />
                                     <button className="upBtn"
-                                        onClick={movePlayerTierUp}>
-                                            Up
-                                    </button>
-                                    <button className="upBtn"
                                         onClick={movePlayerTierDown}>
-                                            Down
+                                            &#8678;
+                                    </button>
+                                    <button className="downBtn"
+                                        onClick={movePlayerTierUp}>
+                                            &#8680;
                                     </button>
                                 </center>
                             </td>
@@ -58,12 +58,12 @@ export default function EditTiers( {player} ) {
                                     <br />
                                     <br />
                                     <button className="upBtn"
-                                        onClick={movePlayerTierUp}>
-                                            Up
-                                    </button>
-                                    <button className="upBtn"
                                         onClick={movePlayerTierDown}>
-                                            Down
+                                            &#8678;
+                                    </button>
+                                    <button className="downBtn"
+                                        onClick={movePlayerTierUp}>
+                                            &#8680;
                                     </button>
                                 </center>
                             </td>
@@ -76,12 +76,12 @@ export default function EditTiers( {player} ) {
                                     <br />
                                     <br />
                                     <button className="upBtn"
-                                        onClick={movePlayerTierUp}>
-                                            Up
-                                    </button>
-                                    <button className="upBtn"
                                         onClick={movePlayerTierDown}>
-                                            Down
+                                            &#8678;
+                                    </button>
+                                    <button className="downBtn"
+                                        onClick={movePlayerTierUp}>
+                                            &#8680;
                                     </button>
                                 </center>
                             </td>
@@ -94,12 +94,12 @@ export default function EditTiers( {player} ) {
                                     <br />
                                     <br />
                                     <button className="upBtn"
-                                        onClick={movePlayerTierUp}>
-                                            Up
-                                    </button>
-                                    <button className="upBtn"
                                         onClick={movePlayerTierDown}>
-                                            Down
+                                            &#8678;
+                                    </button>
+                                    <button className="downBtn"
+                                        onClick={movePlayerTierUp}>
+                                            &#8680;
                                     </button>
                                 </center>
                             </td>
@@ -112,12 +112,12 @@ export default function EditTiers( {player} ) {
                                     <br />
                                     <br />
                                     <button className="upBtn"
-                                        onClick={movePlayerTierUp}>
-                                            Up
-                                    </button>
-                                    <button className="upBtn"
                                         onClick={movePlayerTierDown}>
-                                            Down
+                                            &#8678;
+                                    </button>
+                                    <button className="downBtn"
+                                        onClick={movePlayerTierUp}>
+                                            &#8680;
                                     </button>
                                 </center>
                             </td>
@@ -130,12 +130,12 @@ export default function EditTiers( {player} ) {
                                     <br />
                                     <br />
                                     <button className="upBtn"
-                                        onClick={movePlayerTierUp}>
-                                            Up
-                                    </button>
-                                    <button className="upBtn"
                                         onClick={movePlayerTierDown}>
-                                            Down
+                                            &#8678;
+                                    </button>
+                                    <button className="downBtn"
+                                        onClick={movePlayerTierUp}>
+                                            &#8680;
                                     </button>
                                 </center>
                             </td>

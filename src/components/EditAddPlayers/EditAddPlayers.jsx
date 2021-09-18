@@ -27,7 +27,6 @@ export default function EditAddPlayers() {
     const hosts = useSelector((store) => store.hosts);
     const playerRankings = useSelector((store) => store.playerRankings);
     const players = useSelector((store) => store.players);
-    console.log('players are', players);
 
     function addNewPlayer() {
         // post the local state to the db

@@ -152,3 +152,8 @@ input, select {
 .blackTableCell {
   background-color: black;
 }
+
+.upBtn, .downBtn {
+  background-color: black;
+  color: #CCCC01;
+}
