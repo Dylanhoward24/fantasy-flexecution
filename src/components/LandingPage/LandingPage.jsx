@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
@@ -6,9 +6,12 @@ import './LandingPage.css';
 
 export default function LandingPage() {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: 'FETCH_LANDING_PAGE_PODCASTS' });
+  }, []);
+
   const history = useHistory();
   const user = useSelector((store) => store.user);
-  console.log('user is', user);
   const comingUp = useSelector((store) => store.comingUp);
   const podcasts = useSelector((store) => store.podcasts);
   const listenerRequests = useSelector((store) => store.listenerRequests);
@@ -55,7 +58,9 @@ export default function LandingPage() {
           <div id="podcastDisplayArea">
             {podcastsToDisplay.map((podcast, i) => (
               <div key={i}>
-                <img className="podcastLogo" src={podcast.image_source} />
+                <a href="https://open.spotify.com/show/6f9KRju6JxleavXZvKSltz">
+                  <img className="podcastLogo" src={podcast.image_source} />
+                </a>
                 <p>{formatDate(podcast.time_uploaded)}</p>
                 <p>{podcast.description}</p>
               </div>

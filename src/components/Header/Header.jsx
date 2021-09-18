@@ -9,6 +9,13 @@ function Header() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
+  function logoutUser() {
+    dispatch({
+      type: 'LOGOUT'
+    });
+    history.push('/login');
+  }
+
   return (
     <div className="header">
 
@@ -59,7 +66,7 @@ function Header() {
           {user.id ?
             <>
               <button className="navButton" 
-                onClick={() => dispatch({ type: 'LOGOUT' })}
+                onClick={logoutUser}
               >Logout</button>
             </>
             :

@@ -1,6 +1,11 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 export default function Podcasts() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: 'FETCH_PODCASTS' });
+  }, []);
 
     // to format the appending date of the recent podcasts
     const formatDate = (dateString) => {
