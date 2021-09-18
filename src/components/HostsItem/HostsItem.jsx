@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+
 export default function EditAddPlayersItem( {host} ) {
    const dispatch = useDispatch();
  
@@ -26,20 +27,20 @@ export default function EditAddPlayersItem( {host} ) {
    }
  
    return (
-       <>
-           <select value={newPlayerTier}
-           onChange={(event) => setNewPlayerTier(event.target.value)}>
-               <option disabled value='0'>Tier ({host.first_name})</option>
-               {tiers.map((tier) => (
-                   <option key={tier.id} value={tier.id}>
-                       {tier.tier_name}
-                   </option>
-               ))}
-           </select>
-           <input type="number" value={newPlayerRank} placeholder="Rank"
-               onChange={(event) => setNewPlayerRank(event.target.value)}
-           />
-           <button onClick={submitPlayerRanking}>Confirm</button>
+        <>
+            <select value={newPlayerTier}
+            onChange={(event) => setNewPlayerTier(event.target.value)}>
+                <option disabled value='0'>Tier ({host.first_name})</option>
+                {tiers.map((tier) => (
+                    <option key={tier.id} value={tier.id}>
+                        {tier.tier_name}
+                    </option>
+                ))}
+            </select>
+            <input type="number" value={newPlayerRank} placeholder="Rank"
+                onChange={(event) => setNewPlayerRank(event.target.value)}
+            />
+            <button type="button" onClick={submitPlayerRanking}>Confirm</button>
        </>
-   )
+   );
 }

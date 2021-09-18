@@ -1,8 +1,11 @@
 const express = require('express');
+const {
+    rejectUnauthenticated,
+  } = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const sqlText = `
     SELECT
         "players"."id" as "playerId",
@@ -10,7 +13,9 @@ router.get('/', (req, res) => {
         "players"."last_name" as "lastName",
         "players"."time_created" as "timeAdded",
         "teams"."team_name" as "team",
+        "teams"."id" as "teamId",
         "positions"."position" as "position",
+        "positions"."id" as "positionId",
         "users"."first_name" as "addedBy",
         "tags"."tag" as "tags",
         ARRAY_AGG("playersRankings"."tier_id") as "tier",
@@ -30,7 +35,7 @@ router.get('/', (req, res) => {
         ON "teams"."id" = "players"."team_id"
     JOIN "users"
         ON "users"."id" = "players"."created_by_user_id"
-    GROUP BY "playerId", "firstName", "lastName", "timeAdded", "team", "tags", "position", "addedBy"
+    GROUP BY "playerId", "firstName", "lastName", "timeAdded", "team", "teamId", "tags", "position", "positionId", "addedBy"
     ORDER BY "timeAdded" DESC
     `;
     pool.query(sqlText)
@@ -43,13 +48,13 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', async (req, res) => {
+router.post('/', rejectUnauthenticated, async (req, res) => {
     const client = await pool.connect();
   
     try {
         const {
             newPlayer,
-            rankingsToPass,
+            playerRankings,
             playersTag
         } = req.body;
         const {
@@ -72,7 +77,7 @@ router.post('/', async (req, res) => {
         // get this is the id from the above returned value
         const playerId = playerInsertResults.rows[0].id;
         // map through our playersRankings array to insert each host's player rank
-        await Promise.all(rankingsToPass.map(ranking => {
+        await Promise.all(playerRankings.map(ranking => {
             const sqlText = `
                 INSERT INTO "playersRankings"
                     ("player_id", "user_id", "tier_id", "rank")
@@ -94,7 +99,7 @@ router.post('/', async (req, res) => {
         // );
   
         await client.query('COMMIT');
-        res.sendStatus(200);
+        res.sendStatus(201);
     } catch (error) {
         await client.query('ROLLBACK');
         console.log('Error POST /api/player', error);
@@ -104,7 +109,7 @@ router.post('/', async (req, res) => {
     }
 });
  
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', rejectUnauthenticated, async (req, res) => {
     const client = await pool.connect();
 
     try {
@@ -140,6 +145,28 @@ router.delete('/:id', async (req, res) => {
     } finally {
         client.release();
     }
+});
+
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    let sqlText = `
+        UPDATE "players"
+        SET "first_name" = $1, "last_name" = $2, "team_id" = $3, "position_id" = $4
+        WHERE "players"."id" = $5
+    `;
+    let sqlParams = [
+        req.body.editedPlayer.firstName,
+        req.body.editedPlayer.lastName,
+        req.body.editedPlayer.team,
+        req.body.editedPlayer.position,
+        req.params.id
+    ];
+    pool.query(sqlText, sqlParams)
+        .then(() => {
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log('error updating player', err);
+            res.sendStatus(500);
+        });
 });
 
 module.exports = router;

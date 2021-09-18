@@ -28,9 +28,9 @@ function Header() {
             <p>Podcasts</p>
           </Link>
           <div className="dropdown">
-            <Link className="navLink" to="/all-rankings">
+            <a className="navLink" to="/all-rankings">
               <p>Rankings</p>
-            </Link>
+            </a>
             <div className="dropdown-content">
               <a onClick={() => history.push('/qb-rankings')}>Quarterbacks</a>
               <a onClick={() => history.push('/rb-rankings')}>Running Backs</a>
@@ -38,7 +38,7 @@ function Header() {
               <a onClick={() => history.push('/te-rankings')}>Tight Ends</a>
             </div>
           </div>
-          {user.auth_level === 'admin' ?
+          {user.auth_level === 'admin' || 'host' ?
           <div className="dropdown">
             <Link className="navLink" to="/home">
               <p>Admin</p>
