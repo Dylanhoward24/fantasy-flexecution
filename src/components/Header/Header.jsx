@@ -38,7 +38,10 @@ function Header() {
               <a onClick={() => history.push('/te-rankings')}>Tight Ends</a>
             </div>
           </div>
-          {user.auth_level === 'admin' || 'host' ?
+          {user.auth_level !== 'host' ?
+          <>
+          </>
+          :
           <div className="dropdown">
             <Link className="navLink" to="/home">
               <p>Admin</p>
@@ -50,9 +53,6 @@ function Header() {
               <a onClick={() => history.push('/edit-about-page')}>Edit About Page</a>
             </div>
           </div>
-          :
-          <>
-          </>
           }
         </div>
         <div className="lowerRightHeader">

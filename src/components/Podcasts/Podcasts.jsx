@@ -17,7 +17,9 @@ export default function Podcasts() {
           </center>
             {podcasts.map((podcast, i) => (
                 <div key={i}>
-                <img className="podcastLogo" src={podcast.image_source} />
+                <a href="https://open.spotify.com/show/6f9KRju6JxleavXZvKSltz">
+                  <img className="podcastLogo" src={podcast.image_source} />
+                </a>
                 <p>{formatDate(podcast.time_uploaded)}</p>
                 <p>{podcast.description}</p>
               </div>
