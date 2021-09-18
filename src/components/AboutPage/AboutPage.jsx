@@ -1,11 +1,6 @@
 import React from 'react';
 import './AboutPage.css';
 
-// This is one of our simplest components
-// It doesn't have local state,
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is'
-
 function AboutPage() {
   return (
     <div className="AboutPage">
@@ -24,7 +19,7 @@ function AboutPage() {
 
       <p>
         Yoo, I’m just a kid from Philly that grew up a huge Eagles fan and
-        that eventually lea dme to fantasy.  I took that love of the birds
+        that eventually lead me to fantasy.  I took that love of the birds
         and fantasy with me all over the world when serving in the U.S.
         Navy and that’s where I met my brother, and sub-par cohost, Kyle.
         I think I can speak for both of us when I say that competing
