@@ -7,18 +7,11 @@ export default function QuarterbackRankings() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: 'FETCH_QUARTERBACKS' });
-        // for stretch (sorting)
-        // dispatch({ type: 'FETCH_BRETT_QUARTERBACKS'});
-        // dispatch({ type: 'FETCH_KYLE_QUARTERBACKS'});
     }, []);
 
     // global state
     const hosts = useSelector((store) => store.hosts);
     const quarterbacks = useSelector((store) => store.quarterbacks);
-    console.log('quarterbacks are', quarterbacks);
-    // for stretch (sorting)
-    // const brettQuarterbacks = useSelector((store) => store.brettQuarterbacks);
-    // const kyleQuarterbacks = useSelector((store) => store.kyleQuarterbacks)
 
     return (
         <div className="container">

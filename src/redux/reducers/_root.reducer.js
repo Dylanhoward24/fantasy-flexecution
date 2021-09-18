@@ -11,11 +11,8 @@ import tiers from './tiers.reducer';
 import hosts from './hosts.reducer';
 import playerRankings from './newPlayerRankings.reducer'
 import players from './players.reducer';
-import brettQuarterbacks from './brettQuarterbacks.reducer';
-import kyleQuarterbacks from './kyleQuarterbacks.reducer';
-import brettRunningbacks from './brettRunningbacks.reducer';
-import kyleRunningbacks from './kyleRunningbacks.reducer';
 import quarterbacks from './quarterbacks.reducer';
+import runningBacks from './runningBacks.reducer';
  
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -36,11 +33,8 @@ const rootReducer = combineReducers({
  hosts, // array of the users with 'host' level access to the show
  playerRankings, // global state when adding new players to get hosts' ranks
  players, // array of players default by id to show on admin editAddPlayers
- brettQuarterbacks, // array of quarterbacks ranked by brett
- kyleQuarterbacks, // array of quarterbacks ranked by kyle
- brettRunningbacks, // array of runningbacks ranked by brett
- kyleRunningbacks, // array of runningbacks ranked by kyle
  quarterbacks, // array of quarterbacks with all hosts tier placements
+ runningBacks, // array of running backs with all hosts tier placements
 });
  
 export default rootReducer;
