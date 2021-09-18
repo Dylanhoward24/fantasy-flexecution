@@ -12,6 +12,7 @@ export default function PlayersItem( {player} ) {
 
     // local state
     let [isEditViewDisplayed, setIsEditViewDisplayed] = useState(false);
+    let [editedPlayersTag, setEditedPlayersTag] = useState(player.tags);
     let [editedPlayer, setEditedPlayer] = useState({
         firstName: player.firstName,
         lastName: player.lastName,
@@ -23,8 +24,6 @@ export default function PlayersItem( {player} ) {
     const positions = useSelector((store) => store.positions);
     const teams = useSelector((store) => store.teams);
     const tags = useSelector((store) => store.tags);
-    const hosts = useSelector((store) => store.hosts);
-    const playerRankings = useSelector((store) => store.playerRankings);
 
     function deletePlayer() {
         axios.delete(`api/players/${id}`)
@@ -35,6 +34,17 @@ export default function PlayersItem( {player} ) {
             });
     }
 
+    function updatePlayer() {
+        axios.put(`api/players/${id}`, {
+            editedPlayer
+        }).then(() => {
+            dispatch({
+                type: 'FETCH_PLAYERS'
+            });
+        });
+        toggleDefault();
+    }
+    
     // functions that toggle the view between
     // edit view
     function toggleEdit() {
@@ -96,10 +106,24 @@ export default function PlayersItem( {player} ) {
             </td>
             <EditTiers player={player}/>
             <EditTierRanks player={player}/>
-            <td>{player.tags}</td>
+            <td>
+                <select value={0}
+                    onChange={(event) => setEditedPlayersTag(event.target.value)}>
+                    <option disabled value='0'>Tag</option>
+                    {tags.map((tag) => (
+                        <option key={tag.id} value={tag.id}>
+                            {tag.tag}
+                        </option>
+                    ))}
+                </select>
+            </td>
             <td className="blackTableCell"></td>
+            <td className="blackTableCell">
+                <center>
+                    <button onClick={updatePlayer}>Save</button>
+                </center>
+            </td>
             <td className="blackTableCell"></td>
-            <td><button onClick={toggleDefault}>Save</button></td>
             </>
         }
         </>

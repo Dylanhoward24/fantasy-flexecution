@@ -27,7 +27,7 @@ export default function EditAddPlayersItem( {host} ) {
    }
  
    return (
-       <>
+        <>
             <select value={newPlayerTier}
             onChange={(event) => setNewPlayerTier(event.target.value)}>
                 <option disabled value='0'>Tier ({host.first_name})</option>
@@ -42,5 +42,5 @@ export default function EditAddPlayersItem( {host} ) {
             />
             <button type="button" onClick={submitPlayerRanking}>Confirm</button>
        </>
-   )
+   );
 }

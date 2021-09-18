@@ -147,4 +147,26 @@ router.delete('/:id', rejectUnauthenticated, async (req, res) => {
     }
 });
 
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    let sqlText = `
+        UPDATE "players"
+        SET "first_name" = $1, "last_name" = $2, "team_id" = $3, "position_id" = $4
+        WHERE "players"."id" = $5
+    `;
+    let sqlParams = [
+        req.body.editedPlayer.firstName,
+        req.body.editedPlayer.lastName,
+        req.body.editedPlayer.team,
+        req.body.editedPlayer.position,
+        req.params.id
+    ];
+    pool.query(sqlText, sqlParams)
+        .then(() => {
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log('error updating player', err);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = router;

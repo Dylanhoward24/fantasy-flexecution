@@ -23,11 +23,11 @@ export default function EditTiers( {player} ) {
                                     <br />
                                     <button className="upBtn"
                                         onClick={movePlayerTierUp}>
-                                            Up
+                                            &#8592;
                                     </button>
                                     <button className="upBtn"
                                         onClick={movePlayerTierDown}>
-                                            Down
+                                            &#8592;
                                     </button>
                                 </center>
                             </td>
