@@ -5,6 +5,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     const sqlText = `
         SELECT * FROM "podcasts"
+        ORDER BY "time_uploaded" DESC
     `;
     pool.query(sqlText)
     .then((dbRes) => {
@@ -12,6 +13,22 @@ router.get('/', (req, res) => {
     })
     .catch((error) => {
         console.log('get podcasts error', error);
+        res.sendStatus(500);
+    });
+});
+
+router.get('/landing-page', (req, res) => {
+    const sqlText = `
+        SELECT * FROM "podcasts"
+        ORDER BY "time_uploaded" DESC
+        LIMIT 2
+    `;
+    pool.query(sqlText)
+    .then((dbRes) => {
+        res.send(dbRes.rows)
+    })
+    .catch((error) => {
+        console.log('get podcasts for landing page error', error);
         res.sendStatus(500);
     });
 });
