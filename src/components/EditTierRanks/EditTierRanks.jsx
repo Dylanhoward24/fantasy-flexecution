@@ -18,11 +18,11 @@ export default function EditTierRanks( {player} ) {
                         <br />
                         <button className="upBtn"
                             onClick={movePlayerTierRankUp}>
-                                Up
+                                &#8679;
                         </button>
-                        <button className="upBtn"
+                        <button className="downBtn"
                             onClick={movePlayerTierRankDown}>
-                                Down
+                                &#8681;
                         </button>
                     </center>
                 </td>

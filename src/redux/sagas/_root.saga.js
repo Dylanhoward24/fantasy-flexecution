@@ -14,6 +14,7 @@ import playersSaga from './players.saga';
 import quarterbacksSaga from './quarterbacks.saga';
 import runningBacksSaga from './runningBacks.saga';
 import wideReceiversSaga from './wideReceivers.saga';
+import tightEndsSaga from './tightEnds.saga';
  
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -39,5 +40,6 @@ export default function* rootSaga() {
    quarterbacksSaga(),
    runningBacksSaga(),
    wideReceiversSaga(),
+   tightEndsSaga(),
  ]);
 }

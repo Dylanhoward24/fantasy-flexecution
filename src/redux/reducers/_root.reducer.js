@@ -14,6 +14,7 @@ import players from './players.reducer';
 import quarterbacks from './quarterbacks.reducer';
 import runningBacks from './runningBacks.reducer';
 import wideReceivers from './wideReceivers.reducer';
+import tightEnds from './tightEnds.reducer';
  
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -37,6 +38,7 @@ const rootReducer = combineReducers({
  quarterbacks, // array of quarterbacks with all hosts tier placements
  runningBacks, // array of running backs with all hosts tier placements
  wideReceivers, // array of wide receivers with all hosts tier placements
+ tightEnds, // array of tight ends with all hosts tier placements
 });
  
 export default rootReducer;
