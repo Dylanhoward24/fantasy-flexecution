@@ -6,6 +6,7 @@ router.get('/', (req, res) => {
     const sqlText = `
     SELECT * FROM "users"
     WHERE "auth_level" = 'host'
+    ORDER BY "first_name" ASC
     `;
     pool.query(sqlText)
     .then((dbRes) => {

@@ -2,6 +2,8 @@ const newPlayerRankingsReducer = (state = [], action) => {
     switch (action.type) {
       case 'ADD_NEW_PLAYER_RANKING':
         return [...state, action.payload];
+      case 'CLEAR_PLAYER_RANKINGS':
+        return [];
       default:
         return state;
     }

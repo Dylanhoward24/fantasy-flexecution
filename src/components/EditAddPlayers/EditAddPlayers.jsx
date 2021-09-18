@@ -41,6 +41,11 @@ export default function EditAddPlayers() {
         setNewPlayer({
             firstName: '', lastName: '', team: 0, position: 0, createdByUserId
         });
+        // clear the global state so we don't get more than the # of hosts for next input
+        // since ADD_NEW_PLAYER_RANKKINGS uses a spread operator for state
+        dispatch({
+            type: 'CLEAR_PLAYER_RANKINGS'
+        });
     }
 
     return (
