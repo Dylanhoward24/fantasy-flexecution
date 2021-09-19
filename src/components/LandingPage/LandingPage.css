@@ -15,16 +15,16 @@ body {
 
 #item1 {
   grid-row-start: 1;
-  grid-row-end: 96;
+  grid-row-end: 48;
   grid-column-start: 1;
-  grid-column-end: 48;
+  grid-column-end: 24;
 }
 
 #item2 {
   grid-row-start: 1;
-  grid-row-end: 96;
-  grid-column-start: 48;
-  grid-column-end: 96;
+  grid-row-end: 48;
+  grid-column-start: 24;
+  grid-column-end: 48;
 }
 
 /* #item3 {
@@ -50,6 +50,34 @@ body {
 
 #item6 {
   grid-row-start: 24;
+  grid-row-end: 48;
+  grid-column-start: 24;
+  grid-column-end: 48;
+}
+
+#item7 {
+  grid-row-start: 1;
+  grid-row-end: 8;
+  grid-column-start: 1;
+  grid-column-end: 48;
+}
+
+#item8 {
+  grid-row-start: 8;
+  grid-row-end: 48;
+  grid-column-start: 1;
+  grid-column-end: 24;
+}
+
+#item9 {
+  grid-row-start: 8;
+  grid-row-end: 28;
+  grid-column-start: 24;
+  grid-column-end: 48;
+}
+
+#item10 {
+  grid-row-start: 28;
   grid-row-end: 48;
   grid-column-start: 24;
   grid-column-end: 48;
