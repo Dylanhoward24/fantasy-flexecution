@@ -48,15 +48,15 @@ export default function LoginForm() {
             </div>
             <div className="inputFields">
             {/* capture the value of the user's username */}
-            <input type="password" id="password" value={password} placeholder="Password" rows="1" cols="50"
+            <input type="password" className="password" value={password} placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}/>
             </div>
             <div id="cancelLoginBtns">
-            <button id="cancelBtn" onClick={() => history.push('/home')}>Cancel</button>
-            <button id="loginBtn" onClick={login}>Login</button>
+            <button className="btn" onClick={() => history.push('/home')}>Cancel</button>
+            <button className="btn" onClick={login}>Login</button>
             <div id="registerOption">
             <p>Not registered yet? No problem!</p>
-            <button onClick={() => history.push('/registration')}>Register</button>
+            <button className="btn" onClick={() => history.push('/registration')}>Register</button>
             </div>
             </div>
           </form>

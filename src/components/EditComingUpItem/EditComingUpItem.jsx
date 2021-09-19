@@ -20,7 +20,7 @@ export default function EditComingUpItem( {item} ) {
         <>
             <td>{item.description}</td>
             <td>
-                <button onClick={deleteComingUp}>Delete</button>
+                <button className="btn" onClick={deleteComingUp}>Delete</button>
             </td>
         </>
     );

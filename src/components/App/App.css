@@ -178,8 +178,9 @@ input, select {
   color: #CCCC01;
 }
 
-td, tr, th, table {
-  border: none;
+table {
+  border: 2pt solid black;
+  border-collapse: collapse;
 }
 
 th {
@@ -196,6 +197,7 @@ tr {
 
 h1, h2, h3, h4, h5, h6 {
   color: black;
+  margin-bottom: 25px;
 }
 
 .tierNameTableRow {
@@ -203,8 +205,19 @@ h1, h2, h3, h4, h5, h6 {
   color: #CCCC01;
 }
 
-select, input {
+select, input, textarea {
   background-color: #f4f49f;
-  border: 1pt solid black;
-  border-radius: 4pt;
+  border: 2pt solid black;
+  border-radius: 5pt;
+  margin: 5px;
+}
+
+.password {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  border: 2pt solid black;
+  border-radius: 5pt;
+  background-color: #f4f49f;
+  width: 394px;
 }

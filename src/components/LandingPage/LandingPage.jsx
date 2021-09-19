@@ -95,18 +95,14 @@ export default function LandingPage() {
           <img id="adminLogo" src="https://m.media-amazon.com/images/I/51zTw14COAL._SL500_.jpg" />
         </div>
         <div id="item2">
-          <div id="listenerRequests">
-            <h3>Unanswered listener requests: {listenerRequests.length}</h3>
-            <button className="adminBtns" onClick={() => history.push('/listener-requests')}>
-              Listener Requests
-            </button>
-          </div>
-          <div id="uploadPodcast">
-            <h3>Upload a podcast</h3>
-            <button className="adminBtns" onClick={() => history.push('/upload-podcast')}>
-              Upload Podcast
-            </button>
-          </div>
+          <h3>Unanswered listener requests: {listenerRequests.length}</h3>
+          <button className="adminBtns" onClick={() => history.push('/listener-requests')}>
+            Listener Requests
+          </button>
+          <h3>Upload a podcast</h3>
+              <button className="adminBtns" onClick={() => history.push('/upload-podcast')}>
+                Upload Podcast
+              </button>
         </div>
       </div>
     </>

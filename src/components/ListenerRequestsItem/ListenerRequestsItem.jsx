@@ -28,7 +28,7 @@ export default function ListenerRequestsItem( {listenerRequest} ) {
             <td>{listenerRequest.first_name} {listenerRequest.last_name}</td>
             <td>{formatDate(listenerRequest.time_submitted)}</td>
             <td>{listenerRequest.request_info}</td>
-            <td><button onClick={deleteListenerRequest}>Responded</button></td>
+            <td><button className="btn" onClick={deleteListenerRequest}>Responded</button></td>
         </>
     );
 }

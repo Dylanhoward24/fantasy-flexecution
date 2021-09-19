@@ -51,7 +51,7 @@ export default function EditAddPlayers() {
     return (
         <div className="container">
             <center>
-                <h2>Add Player</h2>
+                <h1>Edit / Add Players</h1>
                 <form>
                     <input type="text" value={newPlayer.firstName} placeholder="First Name"
                         onChange={(e) => setNewPlayer({...newPlayer, firstName: e.target.value})}/>
@@ -92,7 +92,7 @@ export default function EditAddPlayers() {
                     ))}
                 </form>
                 <br />
-                <h2>Edit Players</h2>
+                <br />
                 <table>
                     <thead>
                         <tr>

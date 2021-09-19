@@ -73,12 +73,12 @@ export default function RegisterForm() {
             </div>
             <div className="inputFields">
               {/* capture the value of the user's password */}
-              <textarea id="password" value={newUser.password} placeholder="Password" rows="1" cols="50"
+              <textarea className="password" value={newUser.password} placeholder="Password" rows="1" cols="50"
                 onChange={(e) => setNewUser({...newUser, password: e.target.value})}/>
             </div>
             <div id="cancelRegisterBtns">
-              <button id="cancelBtn" onClick={() => history.push('/home')}>Cancel</button>
-              <button id="registrationBtn" onClick={registerUser}>Register</button>
+              <button className="btn" onClick={() => history.push('/home')}>Cancel</button>
+              <button className="btn" onClick={registerUser}>Register</button>
             </div>
           </form>
         </div>

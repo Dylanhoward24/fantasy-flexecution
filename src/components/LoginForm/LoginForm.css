@@ -12,10 +12,6 @@
     align-items: center;
 }
 
-#username, #password {
-    margin: 5px 0px;
-}
-
 #cancelBtn {
     margin-top: 5px;
     margin-left: 60%;
@@ -33,13 +29,3 @@
 #registerBtn {
     padding-top: 15px;
 }
-
-#password {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 10px 12px;
-    box-sizing: border-box;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    width: 394px;
-  }

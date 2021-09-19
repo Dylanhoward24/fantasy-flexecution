@@ -30,34 +30,34 @@ export default function EditComingUp() {
 
     return (
           <div className="container">
-            <h2>Edit Coming Up</h2>
-            <h4>Add new</h4>
-            <form onSubmit={addComingUp}>
-                <textarea value={description} placeholder="Description"
-                    onChange={(e) => setDescription(e.target.value)}
-                />
+            <h1>Edit Coming Up</h1>
+            <center>
+                <div>
+                    <form onSubmit={addComingUp}>
+                        <input className="editComingUpForm" type="text" value={description} placeholder="Coming Up"
+                            onChange={(e) => setDescription(e.target.value)}/>
+                        <button className="btn">Add</button>
+                    </form>
+                </div>
                 <br />
-                <button>Add</button>
-            </form>
-            <br />
-            <table>
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Remove</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {comingUp.map((item, i) => (
-                    <tr key={i}>
-                        <EditComingUpItem
-                            item={item}
-                        />
-                    </tr>
-                ))}
-                </tbody>
-            </table>
-
-          </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {comingUp.map((item, i) => (
+                        <tr key={i}>
+                            <EditComingUpItem
+                                item={item}
+                            />
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </center>
+        </div>
     );
 }
