@@ -19,7 +19,7 @@ function* fetchTightEnds() {
 
 function* fetchBrettTightEnds() {
     try {
-        const response = yield axios.get('/api/tight-ends//brett'); 
+        const response = yield axios.get('/api/tight-ends/brett'); 
         yield put({ type: 'SET_BRETT_TIGHTENDS', payload: response.data });
     }
     catch (error) {
@@ -29,7 +29,7 @@ function* fetchBrettTightEnds() {
 
 function* fetchKyleTightEnds() {
     try {
-        const response = yield axios.get('/api/tight-ends//kyle');
+        const response = yield axios.get('/api/tight-ends/kyle');
         yield put({ type: 'SET_KYLE_TIGHTENDS', payload: response.data });
     }
     catch (error) {

@@ -5,6 +5,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     const sqlText = `
     SELECT * FROM "tiers"
+    ORDER BY "order_on_list" ASC
     `;
     pool.query(sqlText)
     .then((dbRes) => {
