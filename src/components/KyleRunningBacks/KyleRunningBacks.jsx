@@ -1,15 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-export default function BrettQuarterbacks() {
+export default function KyleRunningBacks() {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch({ type: 'FETCH_BRETT_QUARTERBACKS' });
+        dispatch({ type: 'FETCH_KYLE_RUNNINGBACKS' });
     }, []);
 
     // global state
     const tiers = useSelector((store) => store.tiers);
-    const quarterbacks = useSelector((store) => store.quarterbacks);
+    const runningBacks = useSelector((store) => store.runningBacks);
 
     return (
         <table>
@@ -30,14 +30,14 @@ export default function BrettQuarterbacks() {
                         <td className="tierNameTableRow"></td>
                         <td className="tierNameTableRow"></td>
                     </tr>
-                    {quarterbacks.map((quarterback, i) => {
-                        if (quarterback.tierOrder === tier.order_on_list) {
+                    {runningBacks.map((runningBack, i) => {
+                        if (runningBack.tierOrder === tier.order_on_list) {
                             return (
                                 <tr>
-                                    <td>{quarterback.firstName} {quarterback.lastName}</td>
-                                    <td>{quarterback.team}</td>
-                                    <td>{quarterback.rank}</td>
-                                    <td>{quarterback.tags}</td>
+                                    <td>{runningBack.firstName} {runningBack.lastName}</td>
+                                    <td>{runningBack.team}</td>
+                                    <td>{runningBack.rank}</td>
+                                    <td>{runningBack.tags}</td>
                                 </tr>
                             )
                         }
