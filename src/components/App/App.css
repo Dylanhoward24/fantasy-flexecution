@@ -28,8 +28,13 @@ Button
 -------------------------------------------------------------------------------- */
 
 .btn {
-  display: block;
-  cursor: pointer;
+  padding: 5px;
+  margin: 4px;
+  text-align: center;
+  border: 2pt solid black;
+  border-radius: 5pt;
+  background-color: black;
+  color: #CCCC01;
 }
 
 .btn_sizeMin {
@@ -48,8 +53,8 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
-  text-decoration: none;
+  cursor: pointer;
+  background-color: #5c5b15;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
@@ -131,7 +136,7 @@ textarea {
 }
 
 td, th {
-  padding: 8px;
+  padding: 20px;
 }
 
 input, select {
@@ -144,7 +149,7 @@ input, select {
   font-weight: bold;
 }
 
-.playerNameTableDisplay, .teamTableDisplay, .tagsTableDisplay {
+.rankingsTableHeader {
   padding-left: 50px;
   padding-right: 50px;
 }
@@ -154,6 +159,26 @@ input, select {
 }
 
 .upBtn, .downBtn {
+  background-color: black;
+  color: #CCCC01;
+}
+
+.hostViewSelector {
+  margin-bottom: 20px;
+  margin-left: 60%;
+}
+
+.selector {
+  padding: 4px;
+  margin: 4px;
+  text-align: center;
+  border: 2pt solid black;
+  border-radius: 5pt;
+  background-color: black;
+  color: #CCCC01;
+}
+
+.tierNameTableRow {
   background-color: black;
   color: #CCCC01;
 }

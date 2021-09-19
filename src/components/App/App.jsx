@@ -20,6 +20,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 // import our components
 import AboutPage from '../AboutPage/AboutPage';
 import AllRankings from '../AllRankings/AllRankings';
+import BrettQuarterbacks from '../BrettQuarterbacks/BrettQuarterbacks';
 import ContactUs from '../ContactUs/ContactUs';
 import EditAboutPage from '../EditAboutPage/EditAboutPage';
 import EditAddPlayers from '../EditAddPlayers/EditAddPlayers';

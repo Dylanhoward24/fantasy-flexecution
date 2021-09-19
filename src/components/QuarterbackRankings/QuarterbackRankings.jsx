@@ -1,47 +1,86 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import RankingsHeader from '../RankingsHeader/RankingsHeader';
+import AllQuarterbacks from '../AllQuarterbacks/AllQuarterbacks';
+import BrettQuarterbacks from '../BrettQuarterbacks/BrettQuarterbacks';
+import KyleQuarterbacks from '../KyleQuarterbacks/KyleQuarterbacks';
 import './QuarterbackRankings.css';
 
-export default function QuarterbackRankings() {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({ type: 'FETCH_QUARTERBACKS' });
-    }, []);
+export default function QuarterbackRankings() {    
+    // local state
+    let [defaultHostView, setDefaultHostView] = useState('');
 
     // global state
     const hosts = useSelector((store) => store.hosts);
-    const quarterbacks = useSelector((store) => store.quarterbacks);
 
-    return (
-        <div className="container">
-            <h1>Quarterback Rankings</h1>
-            <RankingsHeader />
-            <center>
-                <table>
-                    <thead>
-                    <tr>
-                        <th className="playerNameTableDisplay">Player Name</th>
-                        <th className="teamTableDisplay">Team</th>
-                        {hosts.map((host, i) => (
-                            <th key={i}>Tier <br /> ({host.first_name})</th>
-                        ))}
-                        <th className="tagsTableDisplay">Tags</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {quarterbacks.map((quarterback, i) => (
-                        <tr key={i}>
-                            <td>{quarterback.firstName} {quarterback.lastName}</td>
-                            <td>{quarterback.team}</td>
-                            {quarterback.tierName.map((tierName, i) => (
-                                <td key={i}>{tierName}</td>
+    switch (defaultHostView) {
+        case '':
+            return (
+                <div className="container">
+                    <h1>Quarterback Rankings</h1>
+                    <RankingsHeader />
+                    <div className="hostViewSelector">
+                        View rankings by host:
+                        <select className="selector" value={defaultHostView}
+                            onChange={(e) => setDefaultHostView(e.target.value)}>
+                            <option value=''>All Hosts</option>
+                            {hosts.map((host, i) => (
+                                <option key={i} value={host.first_name}>
+                                    {host.first_name}
+                                </option>
                             ))}
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </center>
-        </div>
-    );
+                        </select>
+                    </div>
+                    <center>
+                        <AllQuarterbacks />
+                    </center>
+                </div>
+            );
+        case 'Brett':
+            return (
+                <div className="container">
+                    <h1>Quarterback Rankings</h1>
+                    <RankingsHeader />
+                    <div className="hostViewSelector">
+                        View rankings by host:
+                        <select className="selector" value={defaultHostView}
+                            onChange={(e) => setDefaultHostView(e.target.value)}>
+                            <option value=''>All Hosts</option>
+                            {hosts.map((host, i) => (
+                                <option key={i} value={host.first_name}>
+                                    {host.first_name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <center>
+                        <BrettQuarterbacks />
+                    </center>
+                </div>
+            );
+        case 'Kyle':
+            return (
+                <div className="container">
+                    <h1>Quarterback Rankings</h1>
+                    <RankingsHeader />
+                    <div className="hostViewSelector">
+                        View rankings by host:
+                        <select className="selector" value={defaultHostView}
+                            onChange={(e) => setDefaultHostView(e.target.value)}>
+                            <option value=''>All Hosts</option>
+                            {hosts.map((host, i) => (
+                                <option key={i} value={host.first_name}>
+                                    {host.first_name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <center>
+                        <KyleQuarterbacks />
+                    </center>
+                </div>
+            );
+        default:
+            return null;
+    }
 }

@@ -58,7 +58,7 @@ export default function EditAddPlayers() {
                     <input type="text" value={newPlayer.lastName} placeholder="Last Name"
                         onChange={(e) => setNewPlayer({...newPlayer, lastName: e.target.value})}/>
                     <select value={newPlayer.team}
-                        onChange={(event) => setNewPlayer({...newPlayer, team: event.target.value})}>
+                        onChange={(e) => setNewPlayer({...newPlayer, team: e.target.value})}>
                         <option disabled value='0'>Team</option>
                         {teams.map((team) => (
                             <option key={team.id} value={team.id}>
@@ -67,7 +67,7 @@ export default function EditAddPlayers() {
                         ))}
                     </select>
                     <select value={newPlayer.position}
-                        onChange={(event) => setNewPlayer({...newPlayer, position: event.target.value})}>
+                        onChange={(e) => setNewPlayer({...newPlayer, position: e.target.value})}>
                         <option disabled value='0'>Position</option>
                         {positions.map((position) => (
                             <option key={position.id} value={position.id}>
@@ -76,7 +76,7 @@ export default function EditAddPlayers() {
                         ))}
                     </select>
                     <select value={playersTag}
-                        onChange={(event) => setPlayersTag(event.target.value)}>
+                        onChange={(e) => setPlayersTag(e.target.value)}>
                         <option disabled value='0'>Tag</option>
                         {tags.map((tag) => (
                             <option key={tag.id} value={tag.id}>
