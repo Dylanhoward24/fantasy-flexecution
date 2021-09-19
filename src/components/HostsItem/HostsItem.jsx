@@ -40,7 +40,7 @@ export default function EditAddPlayersItem( {host} ) {
             <input type="number" value={newPlayerRank} placeholder="Rank"
                 onChange={(event) => setNewPlayerRank(event.target.value)}
             />
-            <button type="button" onClick={submitPlayerRanking}>Confirm</button>
+            <button className="btn" type="button" onClick={submitPlayerRanking}>Confirm</button>
        </>
    );
 }

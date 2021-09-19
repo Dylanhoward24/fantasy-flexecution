@@ -6,7 +6,7 @@ import BrettWideReceivers from '../BrettWideReceivers/BrettWideReceivers';
 import KyleWideReceivers from '../KyleWideReceivers/KyleWideReceivers';
 import './WideReceiverRankings.css';
 
-export default function WideReceiversRankings() {    
+export default function WideReceiverRankings() {    
     // local state
     let [defaultHostView, setDefaultHostView] = useState('');
 

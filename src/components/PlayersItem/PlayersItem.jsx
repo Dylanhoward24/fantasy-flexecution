@@ -69,8 +69,8 @@ export default function PlayersItem( {player} ) {
                 <td key={i}>{tierRank}</td>
             ))}
             <td>{player.tags}</td>
-            <td><button onClick={toggleEdit}>Edit</button></td>
-            <td><button onClick={deletePlayer}>Delete</button></td>
+            <td><button onClick={toggleEdit} className="btn">Edit</button></td>
+            <td><button onClick={deletePlayer} className="btn">Delete</button></td>
             <td>{player.addedBy}</td>
             </>
         :
@@ -117,13 +117,13 @@ export default function PlayersItem( {player} ) {
                     ))}
                 </select>
             </td>
-            <td className="blackTableCell"></td>
-            <td className="blackTableCell">
+            <td></td>
+            <td>
                 <center>
-                    <button onClick={updatePlayer}>Save</button>
+                    <button className="btn" onClick={updatePlayer}>Save</button>
                 </center>
             </td>
-            <td className="blackTableCell"></td>
+            <td></td>
             </>
         }
         </>

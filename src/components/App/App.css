@@ -7,7 +7,7 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
-  background-color: #cbcbc8;
+  background-color: #dbdbb8;
 }
 
 img {
@@ -178,7 +178,33 @@ input, select {
   color: #CCCC01;
 }
 
+td, tr, th, table {
+  border: none;
+}
+
+th {
+  background-color: #C8C8C8;
+}
+
+td, tr {
+  background-color: #DCDCDC;
+}
+
+tr {
+  border: 4pt solid black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
 .tierNameTableRow {
   background-color: black;
   color: #CCCC01;
+}
+
+select, input {
+  background-color: #f4f49f;
+  border: 1pt solid black;
+  border-radius: 4pt;
 }

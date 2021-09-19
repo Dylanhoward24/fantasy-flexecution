@@ -47,12 +47,11 @@ router.get('/brett', (req, res) => {
     "players"."id" as "playerId",
     "players"."first_name" as "firstName",
     "players"."last_name" as "lastName",
+    "playersRankings"."rank" as "rank",
     "teams"."team_name" as "team",
     "positions"."position" as "position",
-    "tags"."tag" as "tags",
-    "playersRankings"."tier_id" as "tier",
-    "playersRankings"."rank" as "tierRank",
-    "playersRankings"."user_id" as "hostId"
+    "tiers"."order_on_list" as "tierOrder",
+    "tags"."tag" as "tags"
     FROM "tiers"
     JOIN "playersRankings"
         ON "playersRankings"."tier_id" = "tiers"."id"
@@ -68,16 +67,16 @@ router.get('/brett', (req, res) => {
         ON "teams"."id" = "players"."team_id"
     JOIN "users"
         ON "users"."id" = "players"."created_by_user_id"
-    WHERE (("playersRankings"."user_id" = '14') AND ("positions"."position" = 'TE'))
-    GROUP BY "playerId", "firstName", "lastName", "team", "position", "tags", "tier", "tierRank", "hostId"
-    ORDER BY "tier" ASC, "tierRank" ASC
+    WHERE ("positions"."position" = 'TE') AND ("playersRankings"."user_id" = '14')
+    GROUP BY "playerId", "firstName", "rank", "lastName", "team", "position", "tierOrder", "tags"
+    ORDER BY "tierOrder" ASC, "rank" ASC
     `;
     pool.query(sqlText)
     .then((dbRes) => {
         res.send(dbRes.rows)
     })
     .catch((error) => {
-        console.log('get brett tight-ends error', error);
+        console.log('get quarterbacks error', error);
         res.sendStatus(500);
     });
 });
@@ -88,12 +87,11 @@ router.get('/kyle', (req, res) => {
     "players"."id" as "playerId",
     "players"."first_name" as "firstName",
     "players"."last_name" as "lastName",
+    "playersRankings"."rank" as "rank",
     "teams"."team_name" as "team",
     "positions"."position" as "position",
-    "tags"."tag" as "tags",
-    "playersRankings"."tier_id" as "tier",
-    "playersRankings"."rank" as "tierRank",
-    "playersRankings"."user_id" as "hostId"
+    "tiers"."order_on_list" as "tierOrder",
+    "tags"."tag" as "tags"
     FROM "tiers"
     JOIN "playersRankings"
         ON "playersRankings"."tier_id" = "tiers"."id"
@@ -109,16 +107,16 @@ router.get('/kyle', (req, res) => {
         ON "teams"."id" = "players"."team_id"
     JOIN "users"
         ON "users"."id" = "players"."created_by_user_id"
-    WHERE (("playersRankings"."user_id" = '15') AND ("positions"."position" = 'TE'))
-    GROUP BY "playerId", "firstName", "lastName", "team", "position", "tags", "tier", "tierRank", "hostId"
-    ORDER BY "tier" ASC, "tierRank" ASC
+    WHERE ("positions"."position" = 'TE') AND ("playersRankings"."user_id" = '15')
+    GROUP BY "playerId", "firstName", "rank", "lastName", "team", "position", "tierOrder", "tags"
+    ORDER BY "tierOrder" ASC, "rank" ASC
     `;
     pool.query(sqlText)
     .then((dbRes) => {
         res.send(dbRes.rows)
     })
     .catch((error) => {
-        console.log('get kyle tight-ends error', error);
+        console.log('get quarterbacks error', error);
         res.sendStatus(500);
     });
 });

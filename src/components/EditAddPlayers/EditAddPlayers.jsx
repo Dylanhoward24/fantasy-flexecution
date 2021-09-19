@@ -84,7 +84,7 @@ export default function EditAddPlayers() {
                             </option>
                         ))}
                     </select>
-                    <button onClick={addNewPlayer}>Add</button>
+                    <button onClick={addNewPlayer} className="btn">Add</button>
                     {hosts.map((host, i) => (
                         <div key={i}>
                             <HostsItem host={host}/>
