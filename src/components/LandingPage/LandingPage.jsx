@@ -45,7 +45,7 @@ export default function LandingPage() {
   }
 
   function autoFillListenerRequest() {
-    setRequestInfo(`How should we be approaching the Packers offense if they look as bad on Monday night as they did last week?`);
+    setRequestInfo(`How should we be approaching the Packers offense if they look as bad tonight as they did last week?`);
   }
 
   return (

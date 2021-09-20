@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
     SELECT * FROM "users"
     JOIN "listenerRequests"
         ON "listenerRequests"."user_id" = "users"."id"
+    ORDER BY "time_submitted" DESC
     `;
     pool.query(sqlText)
     .then((dbRes) => {

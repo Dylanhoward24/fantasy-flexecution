@@ -28,9 +28,13 @@ export default function EditComingUp() {
         setDescription('');
     }
 
+    function autoFill() {
+        setDescription('Addressing the backfields with multiple injuries');
+    }
+
     return (
           <div className="container">
-            <h1>Edit Coming Up</h1>
+            <h1 onClick={autoFill}>Edit Coming Up</h1>
             <center>
                 <div>
                     <form onSubmit={addComingUp}>

@@ -46,7 +46,7 @@ export default function ListenerRequestsItem( {listenerRequest} ) {
                     <td className="respondedTo">{formatDate(listenerRequest.time_submitted)}</td>
                     <td className="respondedTo">{listenerRequest.request_info}</td>
                     <td className="respondedTo">
-                        <button className="respondedBtn" onClick={() => setIsRespondedTo(false)}>Not Responded</button>
+                        <button className="respondedBtn" onClick={() => setIsRespondedTo(false)}>Responded</button>
                     </td>
                     <td className="respondedTo">
                         <button className="btn" onClick={deleteListenerRequest}>Delete</button>
