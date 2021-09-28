@@ -36,6 +36,7 @@ Button
   border-radius: 5pt;
   background-color: black;
   color: #CCCC01;
+  font-weight: bold;
 }
 
 .btn_sizeMin {
@@ -207,10 +208,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 select, input, textarea {
-  background-color: #f4f49f;
+  background-color: #e4e4af;
   border: 2pt solid black;
   border-radius: 5pt;
   margin: 5px;
+}
+
+::placeholder {
+  color: black;
 }
 
 .password {
@@ -219,6 +224,6 @@ select, input, textarea {
   box-sizing: border-box;
   border: 2pt solid black;
   border-radius: 5pt;
-  background-color: #f4f49f;
+  background-color: #e4e4af;
   width: 394px;
 }

@@ -45,7 +45,7 @@ export default function LandingPage() {
   }
 
   function autoFillListenerRequest() {
-    setRequestInfo(`How should we be approaching the Packers offense if they look as bad on Monday night as they did last week?`);
+    setRequestInfo(`How should we be approaching the Packers offense if they look as bad tonight as they did last week?`);
   }
 
   return (
@@ -90,15 +90,19 @@ export default function LandingPage() {
       :
       <>
       <div className="grid-container">
-        <div id="item1">
-          <h3>Welcome, {user.first_name}!</h3>
+        <div id="item7">
+          <h1>Welcome, {user.first_name}!</h1>
+        </div>
+        <div id="item8">
           <img id="adminLogo" src="https://m.media-amazon.com/images/I/51zTw14COAL._SL500_.jpg" />
         </div>
-        <div id="item2">
+        <div id="item9">
           <h3>Unanswered listener requests: {listenerRequests.length}</h3>
           <button className="adminBtns" onClick={() => history.push('/listener-requests')}>
             Listener Requests
           </button>
+        </div>
+        <div id="item10">
           <h3>Upload a podcast</h3>
               <button className="adminBtns" onClick={() => history.push('/upload-podcast')}>
                 Upload Podcast

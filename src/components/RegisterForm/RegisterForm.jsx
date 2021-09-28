@@ -28,8 +28,6 @@ export default function RegisterForm() {
       username: '', password: '',
       firstName: '', lastName: '', emailAddress: '', about: ''
     });
-
-    
   }; // end registerUser
 
   return (
@@ -73,7 +71,7 @@ export default function RegisterForm() {
             </div>
             <div className="inputFields">
               {/* capture the value of the user's password */}
-              <textarea className="password" value={newUser.password} placeholder="Password" rows="1" cols="50"
+              <input type="password" className="password" value={newUser.password} placeholder="Password"
                 onChange={(e) => setNewUser({...newUser, password: e.target.value})}/>
             </div>
             <div id="cancelRegisterBtns">

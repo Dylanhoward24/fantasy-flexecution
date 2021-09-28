@@ -12,27 +12,28 @@ export default function ListenerRequests() {
         <div className="container">
             <center>
                 <h2>Listener Requests</h2>
-            </center>
-            {/* map through the listener requests array provided via redux store */}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Date Submitted</th>
-                        <th>Request description</th>
-                        <th>Response</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {listenerRequests.map((listenerRequest, i) => (
-                        <tr key={i}>
-                            <ListenerRequestsItem
-                                listenerRequest={listenerRequest}
-                            />
+                {/* map through the listener requests array provided via redux store */}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date Submitted</th>
+                            <th>Request description</th>
+                            <th>Response</th>
+                            <th>Remove</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {listenerRequests.map((listenerRequest, i) => (
+                            <tr key={i}>
+                                <ListenerRequestsItem
+                                    listenerRequest={listenerRequest}
+                                />
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </center>
         </div>
     );
 }

@@ -1,0 +1,35 @@
+.respondBtn {
+  padding: 5px;
+  margin: 4px;
+  text-align: center;
+  border: 2pt solid black;
+  border-radius: 5pt;
+  background-color: #32C732;
+  color: black;
+  font-weight: bold;
+}
+
+.respondBtn:hover {
+  cursor: pointer;
+  background-color: #28A228;
+}
+  
+.respondedBtn {
+  padding: 5px;
+  margin: 4px;
+  text-align: center;
+  border: 2pt solid black;
+  border-radius: 5pt;
+  background-color: #FF1205;
+  color: white;
+  font-weight: bold;
+}
+
+.respondedBtn:hover {
+  cursor: pointer;
+  background-color: #D60B00;
+}
+
+.respondedTo {
+  background-color: #28A228;
+}

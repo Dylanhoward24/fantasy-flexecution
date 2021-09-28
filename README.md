@@ -1,5 +1,16 @@
+# Fantasy Flexecution
 
-# EDA Project
+## Description
+I designed this app to make the lives of two of my friends who run a fantasy football podcast easier.  They were previously storing all of their data analysis and player rankings inside of an excel spreadsheet.  Additionally, there was no two-way interaction between my friends and the listeners of the show.  Followers of the show could only listen to their podcasts on Spotify, but nothing else.  This app allows my friends to create player rankings for each host of the show and that information is displayed in many different view and filter options to the followers.  The hosts can also update the information that is coming up in their show, which is shown to the followers on the home page upon login.  Followers are able to submit listener requests to the hosts, which can be seen only by the hosts when they log in under specified administrative rights.  Hosts also have the ability to add or remove player `tags` which are able to then be associated with specific players (providing additional context regarding that player).
+
+## Project Status
+The app is currently under production with a plan to be ready for deployment to a domain by April, 2022. Some of the additional features required before official launch are a Store (Merchandise), Implementation of NFL Statistics API, and a native version.
+
+Phase 2 will be implementing a custom projections model based on the NFL Statistics API.
+
+I will be continuing to maintain and improve the site after it is deployed as a way to remain involved with my friends' podcast.
+
+## Dependencies and Technologies
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
 We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
@@ -7,7 +18,6 @@ We **STRONGLY** recommend following these instructions carefully. It's a lot, an
 ## Use the Template for This Repository (Don't Clone)
 
 - Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account.
-
 
 ## Prerequisites
 
@@ -19,17 +29,9 @@ Before you get started, make sure you have the following software installed on y
 
 ## Create database and table
 
-Create a new database called `prime_app` and create a `user` table:
+Create a new database called `fantasyflexecution` and populate data based on the SQL code provided in `database_inserts.sql` and `database_tables.sql`
 
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
-
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+If you would like to name your database something else, you will need to change `fantasyflexecution` to the name of your new database name in `server/modules/pool.js`
 
 ## Development Setup Instructions
 
@@ -115,7 +117,3 @@ This code is also heavily commented. We recommend reading through the comments, 
 1. Create the necessary tables
 1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
 1. In the deploy section, select manual deploy
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
