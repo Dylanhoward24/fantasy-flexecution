@@ -16,16 +16,6 @@ CREATE TABLE "comingUp" (
     "description" VARCHAR (500) NOT NULL
 );
 
-CREATE TABLE "players" (
-    "id" SERIAL PRIMARY KEY,
-	"first_name" VARCHAR (80) NOT NULL,
-	"last_name" VARCHAR (80) NOT NULL,
-	"team_id" INT REFERENCES "teams",
-	"position_id" INT REFERENCES "positions",
-	"time_created" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	"created_by_user_id" INT REFERENCES "users"
-);
-
 CREATE TABLE "teams" (
     "id" SERIAL PRIMARY KEY,
 	"team_name" VARCHAR (80) NOT NULL
@@ -34,6 +24,16 @@ CREATE TABLE "teams" (
 CREATE TABLE "positions" (
     "id" SERIAL PRIMARY KEY,
 	"position" VARCHAR (80) NOT NULL
+);
+
+CREATE TABLE "players" (
+    "id" SERIAL PRIMARY KEY,
+	"first_name" VARCHAR (80) NOT NULL,
+	"last_name" VARCHAR (80) NOT NULL,
+	"team_id" INT REFERENCES "teams",
+	"position_id" INT REFERENCES "positions",
+	"time_created" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	"created_by_user_id" INT REFERENCES "users"
 );
 
 CREATE TABLE "tiers" (
