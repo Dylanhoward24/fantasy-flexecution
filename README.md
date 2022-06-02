@@ -31,6 +31,9 @@ Before you get started, make sure you have the following software installed on y
 
 Create a new database called `fantasyflexecution` and populate data based on the SQL code provided in `database_inserts.sql` and `database_tables.sql`
 
+- Note that the password is already hashed for the default users and you must use 123456789 to log in.
+- There are two 'host' users and one 'user' user to showcase permissions and auth implementation throughout the app. Please be sure to log in or else you will not have access to a majority of the features.
+
 If you would like to name your database something else, you will need to change `fantasyflexecution` to the name of your new database name in `server/modules/pool.js`
 
 ## Development Setup Instructions
